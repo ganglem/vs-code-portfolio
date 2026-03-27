@@ -1,6 +1,6 @@
 services:
   portfolio:
-    container_name: ganglem.space
+    container_name: ganglem-portfolio
     image: ganglem/vs-code-portfolio:latest
     env_file:
       - .env
