@@ -1,0 +1,9 @@
+services:
+  portfolio:
+    image: ganglem/vs-code-portfolio:latest
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
