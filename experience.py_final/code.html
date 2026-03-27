@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Experience.py - Emilija Kastratović Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#131313",
+                        "on-primary-fixed": "#001d32",
+                        "outline": "#8a919a",
+                        "on-secondary-container": "#8fcef0",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-container": "#4c2411",
+                        "surface-container": "#202020",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "primary-fixed-dim": "#95ccff",
+                        "on-tertiary-fixed": "#341103",
+                        "on-tertiary": "#4e2513",
+                        "on-secondary-fixed-variant": "#004d66",
+                        "surface-container-low": "#1b1b1c",
+                        "secondary-container": "#025976",
+                        "surface-bright": "#393939",
+                        "surface-dim": "#131313",
+                        "surface-variant": "#353535",
+                        "tertiary-fixed-dim": "#fab79d",
+                        "inverse-primary": "#00639a",
+                        "secondary-fixed": "#c1e8ff",
+                        "tertiary-container": "#c48870",
+                        "surface-tint": "#95ccff",
+                        "on-error": "#690005",
+                        "on-primary-container": "#003150",
+                        "primary-container": "#569cd6",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353535",
+                        "error": "#ffb4ab",
+                        "secondary": "#8fcff0",
+                        "on-secondary": "#003548",
+                        "inverse-on-surface": "#303030",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed": "#ffdbcd",
+                        "primary": "#95ccff",
+                        "on-surface-variant": "#c0c7d1",
+                        "on-tertiary-fixed-variant": "#693b27",
+                        "on-primary": "#003352",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "tertiary": "#fab79d",
+                        "secondary-fixed-dim": "#8fcff0",
+                        "on-primary-fixed-variant": "#004a75",
+                        "on-secondary-fixed": "#001e2b",
+                        "outline-variant": "#40474f",
+                        "primary-fixed": "#cde5ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 18px;
+        }
+        .syntax-keyword { color: #569cd6; }
+        .syntax-function { color: #dcdcaa; }
+        .syntax-string { color: #ce9178; }
+        .syntax-comment { color: #6a9955; }
+        .syntax-class { color: #4ec9b0; }
+        .syntax-number { color: #b5cea8; }
+        .line-numbers {
+            user-select: none;
+            text-align: right;
+            padding-right: 1.5rem;
+            color: #858585;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+        }
+        /* Custom scrollbar for tabs */
+        .tabs-container::-webkit-scrollbar {
+            height: 2px;
+        }
+        .tabs-container::-webkit-scrollbar-thumb {
+            background: #569cd6;
+        }
+        
+        #explorer-sidebar {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (max-width: 768px) {
+            #explorer-sidebar.hidden-sidebar {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar -->
+<header class="w-full shrink-0 flex items-center px-4 h-9 bg-[#131313] border-b border-outline-variant/10 z-50">
+<div class="flex items-center gap-4 w-full h-full">
+<!-- Burger menu visible only on mobile -->
+<button class="md:hidden p-1 hover:bg-surface-container-high rounded transition-colors" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-[#569cd6]" data-icon="menu">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="hidden md:block material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
+<h1 class="font-headline font-bold text-[10px] md:text-xs uppercase tracking-wider text-[#569cd6] truncate max-w-[150px] md:max-w-none">Portfolio - VS Code</h1>
+</div>
+<div class="flex-grow flex justify-center">
+<div class="bg-surface-container-low px-4 md:px-8 py-0.5 text-[10px] md:text-xs font-mono text-on-surface-variant flex items-center gap-2 border border-outline-variant/10 truncate">
+<span class="material-symbols-outlined text-[10px] md:text-xs" data-icon="description">description</span>
+                Experience.py
+            </div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer" data-icon="remove">remove</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer" data-icon="close">close</span>
+</div>
+</div>
+</header>
+<div class="flex-grow flex overflow-hidden">
+<!-- VS Code Activity Bar (Far Left) -->
+<nav class="w-12 bg-surface-container-lowest flex flex-col items-center py-4 space-y-4 border-r border-outline-variant/10 shrink-0 z-50">
+<div class="text-[#95ccff] border-l-2 border-[#569cd6] w-full flex justify-center py-2 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</div>
+<div class="text-[#c0c7d1] opacity-60 hover:opacity-100 hover:text-[#95ccff] cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<div class="text-[#c0c7d1] opacity-60 hover:opacity-100 hover:text-[#95ccff] cursor-pointer">
+<span class="material-symbols-outlined" data-icon="conversion_path">conversion_path</span>
+</div>
+<div class="text-[#c0c7d1] opacity-60 hover:opacity-100 hover:text-[#95ccff] cursor-pointer">
+<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</div>
+<div class="text-[#c0c7d1] opacity-60 hover:opacity-100 hover:text-[#95ccff] cursor-pointer">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+</div>
+<div class="flex-grow"></div>
+<!-- External Social Links in Activity Bar -->
+<a class="text-[#c0c7d1] opacity-60 hover:opacity-100 hover:text-[#95ccff] cursor-pointer py-2" href="https://linkedin.com" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="text-[#c0c7d1] opacity-60 hover:opacity-100 hover:text-[#95ccff] cursor-pointer py-2" href="https://github.com" target="_blank">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
+</nav>
+<!-- Side Explorer (Visible on desktop, toggleable on mobile) -->
+<aside class="fixed md:relative left-12 md:left-0 top-0 h-full w-52 bg-[#202020] flex flex-col font-mono text-sm tracking-tight border-r border-outline-variant/10 z-[40] transition-transform duration-300 md:transform-none hidden-sidebar" id="explorer-sidebar">
+<div class="p-3 text-[11px] font-bold text-on-surface-variant uppercase flex justify-between items-center">
+            EXPLORER
+            <button class="md:hidden material-symbols-outlined text-xs hover:text-white" data-icon="close" onclick="toggleSidebar()">close</button>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="px-4 py-1 flex items-center gap-2 bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-xs" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+<span>PORTFOLIO</span>
+</div>
+<div class="pl-8 py-1 flex items-center gap-2 opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] cursor-pointer">
+<span class="material-symbols-outlined text-[#fab79d] text-xs" data-icon="terminal">terminal</span>
+<span>About.md</span>
+</div>
+<div class="pl-8 py-1 flex items-center gap-2 bg-[#131313] text-[#95ccff] border-l-2 border-[#569cd6]">
+<span class="material-symbols-outlined text-[#569cd6] text-xs" data-icon="code">code</span>
+<span>Experience.py</span>
+</div>
+<div class="pl-8 py-1 flex items-center gap-2 opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] cursor-pointer">
+<span class="material-symbols-outlined text-[#8fcff0] text-xs" data-icon="data_object">data_object</span>
+<span>Projects.json</span>
+</div>
+<div class="pl-8 py-1 flex items-center gap-2 opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] cursor-pointer">
+<span class="material-symbols-outlined text-[#fab79d] text-xs" data-icon="mail">mail</span>
+<span>Contact.html</span>
+</div>
+</div>
+</aside>
+<!-- Overlay for Sidebar on Mobile -->
+<div class="fixed inset-0 bg-black/50 z-[35] hidden" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col overflow-hidden">
+<!-- Editor Tabs (Visible at top) -->
+<div class="flex bg-surface-container-lowest h-9 tabs-container overflow-x-auto whitespace-nowrap scrollbar-hide border-b border-outline-variant/5">
+<div class="px-4 flex items-center gap-2 bg-background border-t-2 border-[#569cd6] text-xs font-mono h-full cursor-default shrink-0">
+<span class="material-symbols-outlined text-xs text-[#569cd6]" data-icon="code">code</span>
+                Experience.py
+                <span class="material-symbols-outlined text-[10px] ml-2 opacity-40 hover:opacity-100" data-icon="close">close</span>
+</div>
+<div class="px-4 flex items-center gap-2 bg-surface-container-low opacity-60 text-xs font-mono h-full border-r border-background cursor-pointer hover:bg-surface-container-high shrink-0">
+<span class="material-symbols-outlined text-xs text-[#fab79d]" data-icon="terminal">terminal</span>
+                About.md
+                <span class="material-symbols-outlined text-[10px] ml-2 opacity-0 group-hover:opacity-100" data-icon="close">close</span>
+</div>
+<div class="px-4 flex items-center gap-2 bg-surface-container-low opacity-60 text-xs font-mono h-full border-r border-background cursor-pointer hover:bg-surface-container-high shrink-0">
+<span class="material-symbols-outlined text-xs text-[#8fcff0]" data-icon="data_object">data_object</span>
+                Projects.json
+            </div>
+<div class="px-4 flex items-center gap-2 bg-surface-container-low opacity-60 text-xs font-mono h-full border-r border-background cursor-pointer hover:bg-surface-container-high shrink-0">
+<span class="material-symbols-outlined text-xs text-[#fab79d]" data-icon="mail">mail</span>
+                Contact.html
+            </div>
+</div>
+<!-- Code Content Area -->
+<div class="flex-grow flex font-mono text-sm leading-relaxed overflow-auto bg-[#131313]">
+<!-- Line Numbers -->
+<div class="line-numbers w-12 shrink-0 pt-4">
+                1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33<br/>34<br/>35<br/>36<br/>37<br/>38<br/>39<br/>40<br/>41<br/>42<br/>43<br/>44<br/>45<br/>46<br/>47
+            </div>
+<!-- Actual Code Content -->
+<div class="flex-grow px-4 pb-12 pt-4 whitespace-nowrap">
+<p><span class="syntax-keyword">import</span> datetime</p>
+<p class="syntax-comment"># Professional Career Path of Emilija Kastratović</p>
+<p> </p>
+<p><span class="syntax-keyword">class</span> <span class="syntax-class">ProfessionalExperience</span>:</p>
+<div class="group cursor-pointer">
+<p class="pl-4 flex items-center">
+<span class="material-symbols-outlined text-[10px] mr-1 opacity-40" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+<span class="syntax-keyword">def</span> <span class="syntax-function">airbus</span>(<span class="syntax-keyword">self</span>):
+                    </p>
+<div class="pl-8 border-l border-outline-variant/10 ml-5">
+<p><span class="syntax-keyword">role</span> = <span class="syntax-string">"Systems Engineer - Connectivity"</span></p>
+<p><span class="syntax-keyword">location</span> = <span class="syntax-string">"Munich, Germany"</span></p>
+<p><span class="syntax-keyword">description</span> = [</p>
+<p class="pl-4"><span class="syntax-string">"Leading aircraft system integration for future fleet connectivity."</span>,</p>
+<p class="pl-4"><span class="syntax-string">"Managing technical requirements and stakeholder alignment."</span></p>
+<p>]</p>
+</div>
+</div>
+<p> </p>
+<div class="group cursor-pointer">
+<p class="pl-4 flex items-center">
+<span class="material-symbols-outlined text-[10px] mr-1 opacity-40" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+<span class="syntax-keyword">def</span> <span class="syntax-function">hitachi_rail</span>(<span class="syntax-keyword">self</span>):
+                    </p>
+<div class="pl-8 border-l border-outline-variant/10 ml-5">
+<p><span class="syntax-keyword">role</span> = <span class="syntax-string">"Senior Signaling Engineer"</span></p>
+<p><span class="syntax-keyword">duration</span> = <span class="syntax-number">3</span> <span class="syntax-comment"># years</span></p>
+<p><span class="syntax-keyword">impact</span> = {</p>
+<p class="pl-4"><span class="syntax-string">"safety"</span>: <span class="syntax-number">1.0</span>,</p>
+<p class="pl-4"><span class="syntax-string">"efficiency"</span>: <span class="syntax-string">"Optimized track utilization via ERTMS Level 2"</span></p>
+<p>}</p>
+</div>
+</div>
+<p> </p>
+<div class="group cursor-pointer">
+<p class="pl-4 flex items-center">
+<span class="material-symbols-outlined text-[10px] mr-1 opacity-40" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+<span class="syntax-keyword">def</span> <span class="syntax-function">denso</span>(<span class="syntax-keyword">self</span>):
+                    </p>
+<div class="pl-8 border-l border-outline-variant/10 ml-5">
+<p><span class="syntax-keyword">role</span> = <span class="syntax-string">"Software Quality Engineer"</span></p>
+<p><span class="syntax-keyword">focus</span> = <span class="syntax-string">"Automotive ADAS &amp; Cockpit Systems"</span></p>
+<p><span class="syntax-keyword">stack</span> = [<span class="syntax-string">"C++"</span>, <span class="syntax-string">"Python"</span>, <span class="syntax-string">"ASPICE"</span>]</p>
+</div>
+</div>
+<p> </p>
+<div class="group cursor-pointer">
+<p class="pl-4 flex items-center">
+<span class="material-symbols-outlined text-[10px] mr-1 opacity-40" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+<span class="syntax-keyword">def</span> <span class="syntax-function">mercedes_benz</span>(<span class="syntax-keyword">self</span>):
+                    </p>
+<div class="pl-8 border-l border-outline-variant/10 ml-5">
+<p><span class="syntax-keyword">role</span> = <span class="syntax-string">"Embedded Systems Intern"</span></p>
+<p><span class="syntax-keyword">project</span> = <span class="syntax-string">"CAN Bus data analysis for powertrain diagnostic"</span></p>
+<p><span class="syntax-keyword">status</span> = <span class="syntax-string">"Completed"</span></p>
+</div>
+</div>
+<p> </p>
+<p><span class="syntax-comment"># End of Experience class</span></p>
+<p><span class="syntax-keyword">if</span> __name__ == <span class="syntax-string">"__main__"</span>:</p>
+<p class="pl-4">emilija = <span class="syntax-class">ProfessionalExperience</span>()</p>
+<p class="pl-4"><span class="syntax-function">print</span>(<span class="syntax-string">"Experience loaded successfully."</span>)</p>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Status Bar) -->
+<footer class="shrink-0 flex justify-between items-center h-6 px-2 bg-[#007acc] text-white font-mono text-[10px] z-50">
+<div class="flex items-center space-x-4 h-full">
+<div class="flex items-center gap-1 hover:bg-[#1f8ad2] px-2 h-full cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="account_tree">account_tree</span>
+<span>main*</span>
+</div>
+<div class="flex items-center gap-1 hover:bg-[#1f8ad2] px-2 h-full cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="sync">sync</span>
+</div>
+<div class="flex items-center gap-1 hover:bg-[#1f8ad2] px-2 h-full cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="error_outline">error_outline</span>
+<span>0</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="warning_amber">warning_amber</span>
+<span>0</span>
+</div>
+</div>
+<div class="flex items-center space-x-2 md:space-x-4 px-2 md:px-4 h-full">
+<span class="hover:bg-[#1f8ad2] px-1 hidden md:inline cursor-pointer">Spaces: 4</span>
+<span class="hover:bg-[#1f8ad2] px-1 hidden md:inline cursor-pointer">UTF-8</span>
+<span class="hover:bg-[#1f8ad2] px-1 cursor-pointer">Python 3.10.12</span>
+<span class="material-symbols-outlined text-[14px] hover:bg-[#1f8ad2] px-1 cursor-pointer" data-icon="terminal">terminal</span>
+</div>
+</footer>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('explorer-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        sidebar.classList.toggle('hidden-sidebar');
+        overlay.classList.toggle('hidden');
+    }
+</script>
+</body></html>

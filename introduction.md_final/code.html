@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio - Emilija Kastratović</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#131313",
+              "on-primary-fixed": "#001d32",
+              "outline": "#8a919a",
+              "on-secondary-container": "#8fcef0",
+              "on-error-container": "#ffdad6",
+              "on-background": "#e5e2e1",
+              "on-tertiary-container": "#4c2411",
+              "surface-container": "#202020",
+              "error-container": "#93000a",
+              "surface": "#131313",
+              "primary-fixed-dim": "#95ccff",
+              "on-tertiary-fixed": "#341103",
+              "on-tertiary": "#4e2513",
+              "on-secondary-fixed-variant": "#004d66",
+              "surface-container-low": "#1b1b1c",
+              "secondary-container": "#025976",
+              "surface-bright": "#393939",
+              "surface-dim": "#131313",
+              "surface-variant": "#353535",
+              "tertiary-fixed-dim": "#fab79d",
+              "inverse-primary": "#00639a",
+              "secondary-fixed": "#c1e8ff",
+              "tertiary-container": "#c48870",
+              "surface-tint": "#95ccff",
+              "on-error": "#690005",
+              "on-primary-container": "#003150",
+              "primary-container": "#569cd6",
+              "surface-container-high": "#2a2a2a",
+              "surface-container-highest": "#353535",
+              "error": "#ffb4ab",
+              "secondary": "#8fcff0",
+              "on-secondary": "#003548",
+              "inverse-on-surface": "#303030",
+              "inverse-surface": "#e5e2e1",
+              "tertiary-fixed": "#ffdbcd",
+              "primary": "#95ccff",
+              "on-surface-variant": "#c0c7d1",
+              "on-tertiary-fixed-variant": "#693b27",
+              "on-primary": "#003352",
+              "surface-container-lowest": "#0e0e0e",
+              "on-surface": "#e5e2e1",
+              "tertiary": "#fab79d",
+              "secondary-fixed-dim": "#8fcff0",
+              "on-primary-fixed-variant": "#004a75",
+              "on-secondary-fixed": "#001e2b",
+              "outline-variant": "#40474f",
+              "primary-fixed": "#cde5ff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #131313;
+            color: #c0c7d1;
+            overflow: hidden;
+        }
+        .line-numbers {
+            user-select: none;
+            text-align: right;
+            padding-right: 1.5rem;
+            color: #40474f;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+        }
+        .markdown-header { color: #fab79d; }
+        .markdown-bold { color: #95ccff; font-weight: 600; }
+        .markdown-link { color: #569cd6; text-decoration: underline; }
+        .custom-scrollbar::-webkit-scrollbar { width: 10px; height: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #131313; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #333333; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #40474f; }
+        
+        #sidebar-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease-in-out;
+        }
+        #sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #sidebar-drawer {
+            transform: translateX(-100%);
+            transition: transform 0.2s ease-in-out;
+        }
+        #sidebar-drawer.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center px-4 h-12 bg-[#131313] transition-all duration-200">
+<div class="flex items-center space-x-3 w-full">
+<button class="flex items-center justify-center p-1 hover:bg-white/5 transition-colors md:hidden" id="menu-button">
+<span class="material-symbols-outlined text-[#569cd6]" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Space_Grotesk'] font-bold text-sm uppercase tracking-wider text-[#569cd6]">
+                Portfolio - Visual Studio Code
+            </h1>
+<div class="flex-grow flex justify-center hidden md:flex">
+<div class="bg-surface-container-high px-8 py-1 text-xs font-label opacity-80 border border-outline-variant/10">
+                    Introduction.md — Portfolio
+                </div>
+</div>
+<span class="material-symbols-outlined text-[#569cd6]" data-icon="more_vert">more_vert</span>
+</div>
+</header>
+<!-- Overlay (Mobile Only) -->
+<div class="fixed inset-0 bg-black/60 z-[60] md:hidden" id="sidebar-overlay"></div>
+<!-- Layout Wrapper -->
+<div class="flex h-screen pt-12 pb-6">
+<!-- Sidebar & Activity Bar (Desktop: Fixed, Mobile: Drawer) -->
+<aside class="fixed left-0 top-12 bottom-6 z-[70] flex bg-[#202020] w-64 md:relative md:top-0 md:bottom-0 md:translate-x-0" id="sidebar-drawer">
+<div class="flex w-full h-full">
+<!-- Activity Bar -->
+<div class="w-12 bg-[#131313] flex flex-col items-center py-4 space-y-6 shrink-0">
+<div class="text-[#95ccff] bg-[#131313] border-l-2 border-[#569cd6] w-full flex justify-center py-2" title="Explorer">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</div>
+<div class="text-[#c0c7d1] opacity-60 hover:bg-[#2a2a2a] hover:text-[#95ccff] transition-colors w-full flex justify-center py-2 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<div class="text-[#c0c7d1] opacity-60 hover:bg-[#2a2a2a] hover:text-[#95ccff] transition-colors w-full flex justify-center py-2 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="conversion_path">conversion_path</span>
+</div>
+<div class="text-[#c0c7d1] opacity-60 hover:bg-[#2a2a2a] hover:text-[#95ccff] transition-colors w-full flex justify-center py-2 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</div>
+<!-- Added External Links as icons -->
+<a class="text-[#c0c7d1] opacity-60 hover:bg-[#2a2a2a] hover:text-[#95ccff] transition-colors w-full flex justify-center py-2 cursor-pointer" href="https://github.com" target="_blank" title="GitHub">
+<i class="fa-brands fa-github text-xl"></i>
+</a>
+<a class="text-[#c0c7d1] opacity-60 hover:bg-[#2a2a2a] hover:text-[#95ccff] transition-colors w-full flex justify-center py-2 cursor-pointer" href="https://linkedin.com" target="_blank" title="LinkedIn">
+<i class="fa-brands fa-linkedin text-xl"></i>
+</a>
+</div>
+<!-- Sidebar Panel -->
+<div class="flex-grow flex flex-col font-['JetBrains_Mono'] text-sm tracking-tight overflow-hidden">
+<div class="px-4 py-3 flex justify-between items-center bg-[#202020]">
+<span class="font-bold text-[11px] opacity-70 uppercase">EXPLORER</span>
+<span class="material-symbols-outlined text-xs" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="flex-grow overflow-y-auto">
+<div class="flex items-center px-1 py-1 hover:bg-[#2a2a2a] cursor-pointer">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+<span class="uppercase font-bold text-[11px]">PORTFOLIO</span>
+</div>
+<div class="pl-4">
+<div class="flex items-center px-2 py-1 bg-[#131313] border-l-2 border-[#569cd6] text-[#95ccff] cursor-pointer">
+<span class="material-symbols-outlined text-sm mr-2 text-[#fab79d]" data-icon="description">description</span>
+<span>Introduction.md</span>
+</div>
+<div class="flex items-center px-2 py-1 hover:bg-[#2a2a2a] opacity-60 cursor-pointer">
+<span class="material-symbols-outlined text-sm mr-2 text-[#95ccff]" data-icon="terminal">terminal</span>
+<span>Experience.sh</span>
+</div>
+<div class="flex items-center px-2 py-1 hover:bg-[#2a2a2a] opacity-60 cursor-pointer">
+<span class="material-symbols-outlined text-sm mr-2 text-[#8fcff0]" data-icon="folder">folder</span>
+<span>Projects/</span>
+</div>
+<div class="flex items-center px-2 py-1 hover:bg-[#2a2a2a] opacity-60 cursor-pointer">
+<span class="material-symbols-outlined text-sm mr-2 text-[#fab79d]" data-icon="data_object">data_object</span>
+<span>Skills.json</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Editor Canvas -->
+<main class="flex-grow flex flex-col bg-background min-w-0">
+<!-- Tabs Bar (Visible in desktop, accessible via burger in mobile) -->
+<div class="flex bg-[#0e0e0e] h-9 overflow-x-auto border-b-0 custom-scrollbar">
+<div class="flex items-center px-4 bg-[#131313] border-t-2 border-[#569cd6] h-full min-w-[160px] text-xs font-label shrink-0">
+<span class="material-symbols-outlined text-sm mr-2 text-[#fab79d]" data-icon="description">description</span>
+<span class="mr-4">Introduction.md</span>
+<span class="material-symbols-outlined text-[14px] ml-auto opacity-60 hover:opacity-100" data-icon="close">close</span>
+</div>
+<div class="flex items-center px-4 bg-[#202020] opacity-60 h-full min-w-[160px] text-xs font-label shrink-0">
+<span class="material-symbols-outlined text-sm mr-2 text-[#95ccff]" data-icon="terminal">terminal</span>
+<span class="mr-4">Experience.sh</span>
+<span class="material-symbols-outlined text-[14px] ml-auto opacity-0" data-icon="close">close</span>
+</div>
+</div>
+<!-- Editor Content -->
+<div class="flex-grow flex overflow-hidden">
+<!-- Line Numbers -->
+<div class="line-numbers py-4 bg-[#131313] min-w-[50px] shrink-0">
+                    1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25
+                </div>
+<!-- Code Workspace -->
+<div class="flex-grow overflow-y-auto custom-scrollbar p-6 font-['JetBrains_Mono'] text-sm leading-relaxed">
+<div class="max-w-4xl">
+<!-- Profile Header -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center mb-10 space-y-4 sm:space-y-0 sm:space-x-6">
+<div class="w-24 h-24 bg-surface-container-highest overflow-hidden border border-outline-variant/20 shadow-2xl shrink-0">
+<img alt="Emilija Kastratović" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAENOf5Zk8Cxj7VlJZdIXrqlLypXt1Vp3EDg7aG-_51EWXMPeGvV57NOqFX1JwKO4q7TboBjIbwgC-QG519zAJzP7vChsxiTG9S5W9K0_UBdL19RSDQuVsU5wfLDrjW2SkqC0oQBMBIENa00JnDj7B-JgygppnLPmJoM0R9850bV0iguS4K__G48_8lCPB7Xz8yAiLJmBtYj9tCxiDEps4CUGcc1-7bSO3leDhxFqXJBJCMtvNOABfC2L3_pFhwzTR2qHZPFeO8XIw"/>
+</div>
+<div>
+<h1 class="markdown-header text-3xl font-headline font-bold mb-1"># Emilija Kastratović</h1>
+<p class="text-on-surface-variant opacity-80 italic">// Software Engineer &amp; Cybersecurity Researcher</p>
+</div>
+</div>
+<!-- Markdown Content -->
+<div class="space-y-6">
+<section>
+<p class="markdown-header text-lg font-bold">## Overview</p>
+<p class="mt-2 text-on-surface-variant">
+<span class="markdown-bold">Master’s student in Computer Science</span> with 4+ years of practical experience in 
+                                    <span class="markdown-bold">Cybersecurity</span> and <span class="markdown-bold">Software Engineering</span>. 
+                                    Driven by the intersection of secure architecture and high-performance computing.
+                                </p>
+</section>
+<section>
+<p class="markdown-header text-lg font-bold">## Technical Focus</p>
+<ul class="mt-2 list-none space-y-2">
+<li class="flex items-start">
+<span class="text-secondary mr-2">-</span>
+<span><span class="markdown-bold">Languages:</span> Rust, Python, TypeScript, C++, Go</span>
+</li>
+<li class="flex items-start">
+<span class="text-secondary mr-2">-</span>
+<span><span class="markdown-bold">Security:</span> Penetration Testing, Crypto, Secure SDLC</span>
+</li>
+<li class="flex items-start">
+<span class="text-secondary mr-2">-</span>
+<span><span class="markdown-bold">Stack:</span> Kubernetes, AWS, PostgreSQL, React</span>
+</li>
+</ul>
+</section>
+<section>
+<p class="markdown-header text-lg font-bold">## Current Mission</p>
+<div class="bg-surface-container-low p-4 border-l-4 border-primary-container">
+<p class="text-on-surface-variant leading-relaxed">
+                                        Building resilient systems that can withstand the evolving threat landscape. Currently focused on zero-trust architectures and automated vulnerability research.
+                                    </p>
+</div>
+</section>
+<section>
+<p class="markdown-header text-lg font-bold">## Contact</p>
+<p class="mt-2">
+                                    Email: <a class="markdown-link" href="mailto:hello@emilija.dev">hello@emilija.dev</a><br/>
+                                    Location: <span class="text-tertiary">Podgorica, Montenegro / Remote</span>
+</p>
+</section>
+<!-- Visual Block: System Map -->
+<div class="mt-12 opacity-50">
+<p class="text-[10px] mb-2 uppercase tracking-widest">// Visualizing current network research</p>
+<div class="aspect-video bg-surface-container-lowest overflow-hidden">
+<img alt="Network Graph" class="w-full h-full object-cover opacity-40 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEjqRY91Sqii81F9RgNZN12RNx7xBPOZM1kLrvlhJYA3al2RPvzxwcqJuMdnDD-LpQM_MlH4VKicHqvlDajsEUxVuSS3cQxCGFxEbHVbYy43Cgm3vFmKj6_LOk4ThglYLrID9E3LP-XxqKR1_aAzmhLUWe268fHS6fTF-ejl8KC2efEDSQaInsO-W6DqkEee3vh1temgZKU9W2IIbIQh9h4sVhnBDGtcT5pJhDwMPI5v5I3zfsddW5oYPCCg4TIoU817xDn3v76r0"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Status Bar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-start items-center h-6 px-2 space-x-4 bg-[#0e0e0e] text-[#95ccff] font-['JetBrains_Mono'] text-[10px]">
+<div class="flex items-center h-full bg-[#569cd6] text-[#ffffff] px-2 cursor-pointer">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="account_tree">account_tree</span>
+<span>main*</span>
+</div>
+<div class="flex items-center space-x-3 opacity-80">
+<div class="flex items-center hover:bg-[#333333] px-1 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="sync">sync</span>
+<span>0</span>
+</div>
+<div class="flex items-center hover:bg-[#333333] px-1 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-xs mr-1 text-error" data-icon="error_outline">error_outline</span>
+<span>0</span>
+<span class="material-symbols-outlined text-xs ml-2 mr-1 text-tertiary" data-icon="warning_amber">warning_amber</span>
+<span>0</span>
+</div>
+</div>
+<div class="flex-grow"></div>
+<div class="flex items-center space-x-4 px-4 h-full opacity-80">
+<span class="hidden sm:inline">Spaces: 4</span>
+<span class="hidden sm:inline">UTF-8</span>
+<span>Markdown</span>
+<span class="material-symbols-outlined text-xs cursor-pointer hover:bg-[#333333]" data-icon="terminal">terminal</span>
+</div>
+</footer>
+<script>
+        const menuBtn = document.getElementById('menu-button');
+        const overlay = document.getElementById('sidebar-overlay');
+        const drawer = document.getElementById('sidebar-drawer');
+
+        function toggleSidebar() {
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        menuBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+    </script>
+</body></html>

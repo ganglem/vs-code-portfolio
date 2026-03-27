@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Material Symbols loaded via <link> in layout.tsx */
+
+/* ─── SF Pro (self-hosted) ──────────────────────────────────────────────────
+   Download from: https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts
+   Place all .otf files in /public/fonts/
+   Falls back to system-ui (= SF Pro on macOS/iOS natively).
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Display weights */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Ultralight.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Thin.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Heavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Text weights (smaller sizes) */
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SF-Pro-Text-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SF-Pro-Text-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SF-Pro-Text-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SF-Pro-Text-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #131313;
+  color: #c0c7d1;
+}
+
+/* ─── Material Symbols ──────────────────────────────────────────────────────── */
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+  user-select: none;
+}
+
+/* ─── Custom scrollbar ──────────────────────────────────────────────────────── */
+
+.scrollbar-ide::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-ide::-webkit-scrollbar-track {
+  background: #131313;
+}
+.scrollbar-ide::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 0;
+}
+.scrollbar-ide::-webkit-scrollbar-thumb:hover {
+  background: #40474f;
+}
+.scrollbar-ide::-webkit-scrollbar-corner {
+  background: #131313;
+}
+
+/* ─── Syntax highlight helpers ──────────────────────────────────────────────── */
+
+.syn-keyword   { color: #569cd6; }
+.syn-type      { color: #4ec9b0; }
+.syn-string    { color: #ce9178; }
+.syn-comment   { color: #6a9955; }
+.syn-function  { color: #dcdcaa; }
+.syn-variable  { color: #9cdcfe; }
+.syn-number    { color: #b5cea8; }
+.syn-md-header { color: #fab79d; }
+.syn-md-bold   { color: #95ccff; font-weight: 600; }
+.syn-md-link   { color: #569cd6; text-decoration: underline; }
