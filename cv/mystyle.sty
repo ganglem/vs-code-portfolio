@@ -1,0 +1,74 @@
+\ProvidesPackage{mystyle}
+
+% ===============================
+%   Core setup
+% ===============================
+
+\RequirePackage[utf8]{inputenc} % Ensure correct character encoding
+\RequirePackage[english]{babel} % Language
+\RequirePackage[none]{hyphenat} % Disable automatic hyphenation everywhere
+\RequirePackage{csquotes}       % Smart quotes with babel awareness
+
+% ===============================
+%   Layout
+% ===============================
+\RequirePackage[left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+
+% ===============================
+%   Fonts & colours
+% ===============================
+\RequirePackage{helvet}
+\RequirePackage{xcolor}
+
+% ===============================
+%   Lists & headings
+% ===============================
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{titling}
+
+% ===============================
+%   Graphics & links
+% ===============================
+\RequirePackage{graphicx}
+\RequirePackage{tabularx}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{fontawesome5}
+
+% ===============================
+%   Global stylistic tweaks
+% ===============================
+
+% Sans-serif default
+\renewcommand{\familydefault}{\sfdefault}
+
+% Custom colours
+\definecolor{shadeGray}{gray}{0.5}
+
+% List bullets
+\setlist[itemize]{label=$\cdot$, itemsep=-0.2em, topsep=0.3em}
+
+% Section spacing
+\newcommand{\sectionspacing}{\vspace{1.2\baselineskip}}
+\newcommand{\subsectionspacing}{\vspace{1\baselineskip}}
+
+% Section title formatting
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0pt}
+  {}
+  [\titlerule \vspace{0.2\baselineskip}]
+
+% Paragraph settings
+\setlength{\parindent}{0pt}
+
+% Line spacing
+\renewcommand{\baselinestretch}{1.35}
+
+% Company and role fonts
+\newcommand{\companyfont}{\bfseries}
+\newcommand{\rolefont}{\itshape}
+
+% Bullet point font size
+\newcommand{\bulletpointfont}{\small}

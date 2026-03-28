@@ -1,0 +1,49 @@
+name: Compile CV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cv/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: cv
+          latexmk_use_lualatex: false
+          latexmk_shell_escape: false
+
+      - name: Convert PDF pages to PNG
+        run: |
+          sudo apt-get install -y poppler-utils
+          mkdir -p cv/preview
+          pdftoppm -r 200 -png cv/main.pdf cv/preview/cv
+
+      - name: Commit preview images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add cv/preview/
+          git diff --cached --quiet || git commit -m "chore: update CV preview images [skip ci]"
+          git push
+
+      - name: Rename PDF
+        run: mv cv/main.pdf CV_Emilija_Kastratovic.pdf
+
+      - name: Deploy PDF to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          include_files: CV_Emilija_Kastratovic.pdf
+          destination_dir: .

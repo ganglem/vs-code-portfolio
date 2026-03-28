@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'cv/**'
 
 jobs:
   build-and-push:
