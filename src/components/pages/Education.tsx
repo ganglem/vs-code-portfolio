@@ -3,7 +3,7 @@ import { LineNumbers } from '@/components/LineNumbers'
 export function Education() {
   return (
     <div className="flex min-h-full font-mono text-sm leading-6">
-      <LineNumbers count={50} />
+      <LineNumbers count={70} />
 
       <div className="flex-grow p-4 pb-12">
 
@@ -50,13 +50,24 @@ export function Education() {
             </div>
             <div className="relative z-10">
               <h2 className="font-headline font-extrabold text-2xl text-primary tracking-tight mb-1">
-                University Name
+                Ulm University
               </h2>
-              <p className="text-on-surface-variant font-mono text-base mb-4">
-                Degree / Programme
+              <p className="text-on-surface-variant font-mono text-base mb-1">
+                M.Sc. Computer Science{' '}
+                <span className="text-xs opacity-60">— Oct 2023 – Jun 2026</span>
+              </p>
+              <p className="text-on-surface-variant font-mono text-xs mb-4 opacity-70 leading-relaxed">
+                Thesis: &ldquo;Assessing the Effectiveness of Large Language Model Support for Generating GDPR ROPA Documentation&rdquo;
+              </p>
+              <p className="text-on-surface-variant font-mono text-sm mb-1 border-t border-outline-variant/20 pt-3 opacity-80">
+                B.Sc. Software Engineering{' '}
+                <span className="text-xs opacity-60">— Oct 2019 – Jul 2023</span>
+              </p>
+              <p className="text-on-surface-variant font-mono text-xs mb-4 opacity-60 leading-relaxed">
+                Thesis: &ldquo;Comparing different vehicle architectures based on attack path analysis&rdquo; (co-op with Mercedes-Benz Tech Innovation)
               </p>
               <div className="flex flex-wrap gap-2 mb-5">
-                {['Focus Area A', 'Focus Area B', 'Focus Area C'].map((tag) => (
+                {['System Architecture', 'Cybersecurity', 'Interaction Design', 'LLM Research'].map((tag) => (
                   <span
                     key={tag}
                     className="px-2 py-1 bg-surface-container-high text-secondary text-xs font-mono"
@@ -69,7 +80,7 @@ export function Education() {
                 <span className="syn-comment">// Key Focus Areas</span>
                 <br />
                 <span className="text-on-surface-variant">
-                  Placeholder topic A, placeholder topic B, placeholder topic C
+                  Vehicular Security, Trust Management in VANETs, GDPR Automation, Advanced UI Engineering
                 </span>
               </div>
             </div>
@@ -88,9 +99,11 @@ export function Education() {
                 <span className="syn-keyword">&quot;languages&quot;</span>
                 <span className="text-on-surface-variant">: [</span>
                 <br />
-                <span className="pl-4 syn-string">&quot;Language A&quot;</span>
+                <span className="pl-4 syn-string">&quot;Python&quot;</span>
                 <span className="text-on-surface-variant">, </span>
-                <span className="syn-string">&quot;Language B&quot;</span>
+                <span className="syn-string">&quot;TypeScript&quot;</span>
+                <span className="text-on-surface-variant">, </span>
+                <span className="syn-string">&quot;Java&quot;</span>
                 <br />
                 <span className="text-on-surface-variant">],</span>
               </div>
@@ -98,9 +111,18 @@ export function Education() {
                 <span className="syn-keyword">&quot;frameworks&quot;</span>
                 <span className="text-on-surface-variant">: [</span>
                 <br />
-                <span className="pl-4 syn-string">&quot;Framework A&quot;</span>
+                <span className="pl-4 syn-string">&quot;Next.js&quot;</span>
                 <span className="text-on-surface-variant">, </span>
-                <span className="syn-string">&quot;Framework B&quot;</span>
+                <span className="syn-string">&quot;React.js&quot;</span>
+                <span className="text-on-surface-variant">, </span>
+                <span className="syn-string">&quot;Three.js&quot;</span>
+                <span className="text-on-surface-variant">,</span>
+                <br />
+                <span className="pl-4 syn-string">&quot;Framer Motion&quot;</span>
+                <span className="text-on-surface-variant">, </span>
+                <span className="syn-string">&quot;Supabase&quot;</span>
+                <span className="text-on-surface-variant">, </span>
+                <span className="syn-string">&quot;Kafka&quot;</span>
                 <br />
                 <span className="text-on-surface-variant">],</span>
               </div>
@@ -108,9 +130,18 @@ export function Education() {
                 <span className="syn-keyword">&quot;tools&quot;</span>
                 <span className="text-on-surface-variant">: [</span>
                 <br />
-                <span className="pl-4 syn-string">&quot;Tool A&quot;</span>
+                <span className="pl-4 syn-string">&quot;Docker&quot;</span>
                 <span className="text-on-surface-variant">, </span>
-                <span className="syn-string">&quot;Tool B&quot;</span>
+                <span className="syn-string">&quot;Git&quot;</span>
+                <span className="text-on-surface-variant">, </span>
+                <span className="syn-string">&quot;Jenkins&quot;</span>
+                <span className="text-on-surface-variant">,</span>
+                <br />
+                <span className="pl-4 syn-string">&quot;Kali Linux&quot;</span>
+                <span className="text-on-surface-variant">, </span>
+                <span className="syn-string">&quot;Burp Suite&quot;</span>
+                <span className="text-on-surface-variant">, </span>
+                <span className="syn-string">&quot;Figma&quot;</span>
                 <br />
                 <span className="text-on-surface-variant">]</span>
               </div>
@@ -130,7 +161,7 @@ export function Education() {
           <p className="pl-4">
             <span className="syn-variable">fullName</span>
             <span className="text-on-surface-variant">: </span>
-            <span className="syn-string">&apos;Your Name&apos;</span>
+            <span className="syn-string">&apos;Emilija Kastratović&apos;</span>
             <span className="text-on-surface-variant">,</span>
           </p>
           <p className="pl-4">
@@ -143,7 +174,7 @@ export function Education() {
         </div>
 
         {/* ── CTA block ────────────────────────────────────────────────── */}
-        <div className="mt-10 mr-4 p-8 bg-gradient-to-br from-[#131313] to-surface-container-high flex flex-col items-center justify-center text-center border border-outline-variant/10">
+        <div className="mt-10 mr-4 p-8 bg-gradient-to-br from-surface to-surface-container-high flex flex-col items-center justify-center text-center border border-outline-variant/10">
           <div className="w-14 h-14 mb-4 flex items-center justify-center bg-primary-container text-on-primary-container">
             <span className="material-symbols-outlined text-2xl">terminal</span>
           </div>
@@ -153,9 +184,12 @@ export function Education() {
           <p className="text-on-surface-variant font-mono max-w-md mb-6 text-xs">
             Compiling expertise into production-ready solutions.
           </p>
-          <button className="bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-mono px-8 py-2.5 font-bold text-sm hover:opacity-90 transition-opacity">
+          <a
+            href="mailto:emilija1705@gmail.com"
+            className="bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-mono px-8 py-2.5 font-bold text-sm hover:opacity-90 transition-opacity"
+          >
             INITIALIZE_CONTACT
-          </button>
+          </a>
         </div>
 
       </div>

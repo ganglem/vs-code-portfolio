@@ -7,34 +7,51 @@ interface Project {
   stack: string[]
   description: string
   githubHref: string
+  githubLabel: string
   liveHref: string
+  liveLabel: string
 }
 
 const PROJECTS: Project[] = [
   {
-    varName: 'projectAlpha',
-    name: 'Project Alpha',
-    category: 'Category / Domain',
-    stack: ['Next.js', 'TypeScript', 'Prisma'],
-    description: 'One-line description of what this project does.',
-    githubHref: '#',
-    liveHref: '#',
+    varName: 'ropagen',
+    name: 'ROPAgen',
+    category: 'GDPR Compliance / Full Stack',
+    stack: ['Next.js', 'TypeScript', 'Docker', 'Supabase', 'OpenRouter', 'CI/CD'],
+    description: 'Self-hosted, LLM-driven GDPR ROPA document generation platform at Ulm University (DBIS) with integrated AI chatbots.',
+    githubHref: 'https://github.com/ganglem/ROPAgen',
+    githubLabel: 'github.com/ganglem/ROPAgen',
+    liveHref: 'https://ropagen.eu',
+    liveLabel: 'ropagen.eu',
   },
   {
-    varName: 'projectBeta',
-    name: 'Project Beta',
-    category: 'Category / Domain',
-    stack: ['React Native', 'Node', 'Socket.io'],
-    description: 'One-line description of what this project does.',
-    githubHref: '#',
-    liveHref: '#',
+    varName: 'find_me',
+    name: 'FIND.ME',
+    category: 'Festival App / Full Stack',
+    stack: ['Next.js', 'TypeScript', 'Docker', 'Supabase'],
+    description: 'Digital festival companion — live track friends\' stage location, view all acts, mark favorites, manage profiles.',
+    githubHref: 'https://github.com/ganglem/findme',
+    githubLabel: 'github.com/ganglem/findme',
+    liveHref: 'https://festival-find.me',
+    liveLabel: 'festival-find.me',
+  },
+  {
+    varName: 'bier_turnier',
+    name: 'BierTurnier',
+    category: 'Party App / Full Stack + Design',
+    stack: ['Next.js', 'TypeScript', 'Docker', 'Supabase', 'Adobe Photoshop', 'Adobe Illustrator'],
+    description: 'Web app to create and track party games — also handled UX/UI design, branding, logos, and graphic assets.',
+    githubHref: 'https://github.com/MarkusThielker/bier-turnier',
+    githubLabel: 'github.com/MarkusThielker/bier-turnier',
+    liveHref: 'https://tournament.beer',
+    liveLabel: 'tournament.beer',
   },
 ]
 
 export function Projects() {
   return (
     <div className="flex min-h-full font-mono text-sm leading-6">
-      <LineNumbers count={65} />
+      <LineNumbers count={85} />
 
       <div className="flex-grow p-4 pb-12">
 
@@ -47,8 +64,8 @@ export function Projects() {
           <span className="text-on-surface-variant">;</span>
         </p>
         <p className="mt-3 syn-comment">/**</p>
-        <p className="syn-comment"> * @name Your Name</p>
-        <p className="syn-comment"> * @role Your Title</p>
+        <p className="syn-comment"> * @name Emilija Kastratović</p>
+        <p className="syn-comment"> * @role Software Engineer &amp; Cybersecurity Researcher</p>
         <p className="syn-comment"> */</p>
 
         <p className="mt-4">
@@ -104,9 +121,11 @@ export function Projects() {
                   <span className="text-on-surface-variant">: </span>
                   <a
                     href={project.githubHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="syn-string underline decoration-dotted decoration-on-surface-variant hover:text-primary transition-colors"
                   >
-                    &apos;github.com/you/{project.varName}&apos;
+                    &apos;{project.githubLabel}&apos;
                   </a>
                   <span className="text-on-surface-variant">,</span>
                 </p>
@@ -115,9 +134,11 @@ export function Projects() {
                   <span className="text-on-surface-variant">: </span>
                   <a
                     href={project.liveHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="syn-string underline decoration-dotted decoration-on-surface-variant hover:text-primary transition-colors"
                   >
-                    &apos;your-project.io&apos;
+                    &apos;{project.liveLabel}&apos;
                   </a>
                 </p>
               </div>

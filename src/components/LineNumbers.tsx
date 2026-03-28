@@ -5,7 +5,7 @@ interface Props {
 export function LineNumbers({ count }: Props) {
   return (
     <div
-      className="select-none text-right pr-4 pt-4 pb-4 text-[#40474f] w-10 shrink-0 font-mono text-[13px] leading-6 bg-[#131313]"
+      className="select-none text-right pr-4 pt-4 pb-4 text-on-surface-variant opacity-40 w-10 shrink-0 font-mono text-[13px] leading-6 bg-surface"
       aria-hidden="true"
     >
       {Array.from({ length: count }, (_, i) => (
