@@ -30,12 +30,6 @@ export function VSCodeShell({ activeTab, children }: Props) {
     setIsDark(document.documentElement.classList.contains('dark'))
   }, [])
 
-  // After sidebar finishes sliding (200ms transition), fire a resize event so
-  // any fill-editor content (e.g. physics canvas) reflows to the new dimensions.
-  useEffect(() => {
-    const t = setTimeout(() => window.dispatchEvent(new Event('resize')), 220)
-    return () => clearTimeout(t)
-  }, [sidebarOpen])
 
   function closeTab(tabId: TabId, e: React.MouseEvent) {
     e.preventDefault()
