@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono, Geist } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -18,10 +15,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        {/* Restore theme before first paint to prevent flash */}
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');if(t==='light'){return;}document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})();` }} />
       </head>
       <body className={`${jetbrainsMono.variable} font-sans antialiased`}>

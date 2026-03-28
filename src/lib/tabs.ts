@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react'
-import { FileText, FileCode, FileCode2, FileJson } from 'lucide-react'
+import { FileText, FileCode, FileCode2, FileJson, Sparkles } from 'lucide-react'
 
-export const TAB_IDS = ['introduction', 'experience', 'education', 'projects'] as const
+export const TAB_IDS = ['introduction', 'experience', 'education', 'projects', 'skills'] as const
 export type TabId = (typeof TAB_IDS)[number]
 
 export interface Tab {
@@ -44,6 +44,13 @@ export const TABS: Tab[] = [
     icon: FileJson,
     iconColor: 'text-[#dcdcaa]',
     language: 'JavaScript',
+  },
+  {
+    id: 'skills',
+    label: 'Skills.tsx',
+    icon: Sparkles,
+    iconColor: 'text-primary',
+    language: 'TypeScript',
   },
 ]
 
