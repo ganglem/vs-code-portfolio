@@ -1,3 +1,4 @@
+import { User } from 'lucide-react'
 import { LineNumbers } from '@/components/LineNumbers'
 
 export function Introduction() {
@@ -11,9 +12,7 @@ export function Introduction() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center mb-10 gap-6">
           {/* Avatar placeholder */}
           <div className="w-24 h-24 bg-surface-container-highest border border-outline-variant/20 shrink-0 flex items-center justify-center">
-            <span className="material-symbols-outlined text-3xl text-on-surface-variant opacity-30">
-              person
-            </span>
+            <User size={32} className="text-on-surface-variant opacity-30" />
           </div>
           <div>
             <h1 className="syn-md-header text-3xl font-headline font-bold mb-1">

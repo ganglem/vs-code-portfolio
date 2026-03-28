@@ -1,3 +1,5 @@
+import { Terminal } from 'lucide-react'
+
 interface Props {
   language: string | null
 }
@@ -11,8 +13,8 @@ export function StatusBar({ language }: Props) {
         <span className="hover:bg-surface-container px-1 cursor-pointer">
           {language ?? 'Plain Text'}
         </span>
-        <span className="material-symbols-outlined text-[12px] hover:bg-surface-container px-1 cursor-pointer">
-          terminal
+        <span className="hover:bg-surface-container px-1 cursor-pointer">
+          <Terminal size={12} />
         </span>
       </div>
     </footer>

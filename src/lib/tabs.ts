@@ -1,3 +1,6 @@
+import type { LucideIcon } from 'lucide-react'
+import { FileText, FileCode, FileCode2, FileJson } from 'lucide-react'
+
 export const TAB_IDS = ['introduction', 'experience', 'education', 'projects'] as const
 export type TabId = (typeof TAB_IDS)[number]
 
@@ -5,12 +8,10 @@ export interface Tab {
   id: TabId
   /** Filename shown in the tab bar and sidebar */
   label: string
-  /** Material Symbol icon name */
-  icon: string
+  /** Lucide icon component */
+  icon: LucideIcon
   /** Tailwind text color class for the icon */
   iconColor: string
-  /** Tailwind text size class for the sidebar icon, defaults to text-[14px] */
-  iconSize?: string
   /** Language shown in the status bar */
   language: string
 }
@@ -19,28 +20,28 @@ export const TABS: Tab[] = [
   {
     id: 'introduction',
     label: 'Introduction.md',
-    icon: 'description',
+    icon: FileText,
     iconColor: 'text-tertiary',
     language: 'Markdown',
   },
   {
     id: 'experience',
     label: 'Experience.py',
-    icon: 'code',
+    icon: FileCode,
     iconColor: 'text-[#4ec9b0]',
     language: 'Python 3',
   },
   {
     id: 'education',
     label: 'Education.ts',
-    icon: 'javascript',
+    icon: FileCode2,
     iconColor: 'text-primary-container',
     language: 'TypeScript',
   },
   {
     id: 'projects',
     label: 'Projects.js',
-    icon: 'javascript',
+    icon: FileJson,
     iconColor: 'text-[#dcdcaa]',
     language: 'JavaScript',
   },

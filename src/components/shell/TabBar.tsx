@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { X } from 'lucide-react'
 import { TABS, type TabId } from '@/lib/tabs'
 
 interface Props {
@@ -13,6 +14,7 @@ export function TabBar({ openTabs, activeTab, onClose }: Props) {
       {openTabs.map((tabId) => {
         const tab = TABS.find((t) => t.id === tabId)!
         const isActive = tabId === activeTab
+        const Icon = tab.icon
         return (
           <div
             key={tabId}
@@ -24,7 +26,7 @@ export function TabBar({ openTabs, activeTab, onClose }: Props) {
             ].join(' ')}
           >
             <Link href={`/?tab=${tab.id}`} className="flex items-center gap-1">
-              <span className={`material-symbols-outlined text-[12px] ${tab.iconColor}`}>{tab.icon}</span>
+              <Icon size={12} className={tab.iconColor} />
               <span className="whitespace-nowrap pr-1 tracking-wide">{tab.label}</span>
             </Link>
 
@@ -36,7 +38,7 @@ export function TabBar({ openTabs, activeTab, onClose }: Props) {
               ].join(' ')}
               aria-label={`Close ${tab.label}`}
             >
-              <span className="material-symbols-outlined text-[11px]" style={{ fontVariationSettings: "'wght' 200" }}>close</span>
+              <X size={11} />
             </button>
           </div>
         )

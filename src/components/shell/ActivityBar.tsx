@@ -1,3 +1,5 @@
+import { FolderOpen, Search, Settings } from 'lucide-react'
+
 interface Props {
   sidebarOpen: boolean
   sidebarView: 'explorer' | 'settings'
@@ -8,21 +10,18 @@ interface Props {
 export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onToggleSettings }: Props) {
   return (
     <nav className="w-12 bg-surface-container-low shrink-0 flex flex-col items-center pt-0 pb-4 gap-1 z-40 border-r border-outline-variant/30">
-      {/* Explorer toggle */}
       <button
         onClick={onToggleExplorer}
         className={['activity-btn', sidebarOpen && sidebarView === 'explorer' ? 'activity-btn-active' : 'activity-btn-inactive'].join(' ')}
         aria-label="Toggle explorer"
       >
-        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>folder_open</span>
+        <FolderOpen size={18} />
       </button>
 
-      {/* Search toggle */}
       <div className="w-full flex justify-center py-2 text-on-surface-variant opacity-50 hover:opacity-100 transition-all cursor-pointer">
-        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>search</span>
+        <Search size={18} />
       </div>
 
-      {/* Social links + settings — pushed to bottom */}
       <div className="mt-auto w-full flex flex-col items-center gap-3 pb-0">
         <a
           href="https://www.linkedin.com/in/emilijak/"
@@ -52,7 +51,7 @@ export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onTogg
           title="Settings"
           aria-label="Toggle settings"
         >
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>settings</span>
+          <Settings size={18} />
         </button>
       </div>
     </nav>

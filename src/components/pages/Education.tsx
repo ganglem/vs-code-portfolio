@@ -1,3 +1,4 @@
+import { GraduationCap, Terminal } from 'lucide-react'
 import { LineNumbers } from '@/components/LineNumbers'
 
 export function Education() {
@@ -46,7 +47,7 @@ export function Education() {
           {/* Main education card */}
           <div className="lg:col-span-2 bg-surface-container border-l-4 border-primary-container p-6 shadow-xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-              <span className="material-symbols-outlined" style={{ fontSize: '6rem' }}>school</span>
+              <GraduationCap size={96} />
             </div>
             <div className="relative z-10">
               <h2 className="font-headline font-extrabold text-2xl text-primary tracking-tight mb-1">
@@ -92,7 +93,7 @@ export function Education() {
               <h3 className="font-headline font-bold text-xs tracking-widest text-tertiary uppercase">
                 Skills.json
               </h3>
-              <span className="material-symbols-outlined text-tertiary text-[15px]">terminal</span>
+              <Terminal size={15} className="text-tertiary" />
             </div>
             <div className="space-y-3 font-mono text-[11px] leading-tight text-on-surface-variant">
               <div>
@@ -176,7 +177,7 @@ export function Education() {
         {/* ── CTA block ────────────────────────────────────────────────── */}
         <div className="mt-10 mr-4 p-8 bg-gradient-to-br from-surface to-surface-container-high flex flex-col items-center justify-center text-center border border-outline-variant/10">
           <div className="w-14 h-14 mb-4 flex items-center justify-center bg-primary-container text-on-primary-container">
-            <span className="material-symbols-outlined text-2xl">terminal</span>
+            <Terminal size={24} />
           </div>
           <h3 className="font-headline font-black text-3xl mb-2 text-on-surface">
             BUILD_THE_FUTURE()

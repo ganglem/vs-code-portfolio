@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { X, ChevronDown, Sun, Moon } from 'lucide-react'
 import { TABS, type TabId } from '@/lib/tabs'
 
 interface Props {
@@ -33,7 +34,7 @@ export function Sidebar({ open, view, activeTab, folderOpen, isDark, onClose, on
             className="lg:hidden text-on-surface-variant hover:text-on-surface"
             onClick={onClose}
           >
-            <span className="material-symbols-outlined text-[11px]" style={{ fontVariationSettings: "'wght' 200" }}>close</span>
+            <X size={14} />
           </button>
         </div>
 
@@ -43,9 +44,7 @@ export function Sidebar({ open, view, activeTab, folderOpen, isDark, onClose, on
               onClick={onFolderToggle}
               className="flex items-center gap-1 px-2 py-0.5 bg-surface-container-low text-on-surface-variant shrink-0 w-full text-left hover:bg-surface-container transition-colors"
             >
-              <span className={`material-symbols-outlined text-[15px] transition-transform duration-150 ${folderOpen ? 'rotate-0' : '-rotate-90'}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
-                keyboard_arrow_down
-              </span>
+              <ChevronDown size={15} className={`transition-transform duration-150 ${folderOpen ? 'rotate-0' : '-rotate-90'}`} />
               <span className="text-[11px] font-sans font-bold uppercase tracking-tight">Portfolio</span>
             </button>
 
@@ -53,6 +52,7 @@ export function Sidebar({ open, view, activeTab, folderOpen, isDark, onClose, on
               <div className="flex flex-col">
                 {TABS.map((tab) => {
                   const isActive = tab.id === activeTab
+                  const Icon = tab.icon
                   return (
                     <Link
                       key={tab.id}
@@ -65,9 +65,7 @@ export function Sidebar({ open, view, activeTab, folderOpen, isDark, onClose, on
                           : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface',
                       ].join(' ')}
                     >
-                      <span className={`material-symbols-outlined ${tab.iconSize ?? 'text-[15px]'} ${tab.iconColor} transition-opacity ${isActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
-                        {tab.icon}
-                      </span>
+                      <Icon size={15} className={`${tab.iconColor} transition-opacity ${isActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`} />
                       <span>{tab.label}</span>
                     </Link>
                   )
@@ -85,9 +83,7 @@ export function Sidebar({ open, view, activeTab, folderOpen, isDark, onClose, on
                 onClick={onToggleTheme}
                 className="flex items-center gap-3 px-2 py-2.5 w-full text-left hover:bg-surface-container-highest transition-colors rounded-xl"
               >
-                <span className="material-symbols-outlined text-[18px] text-primary shrink-0">
-                  {isDark ? 'light_mode' : 'dark_mode'}
-                </span>
+                {isDark ? <Sun size={18} className="text-primary shrink-0" /> : <Moon size={18} className="text-primary shrink-0" />}
                 <div>
                   <p className="font-mono text-[12px] text-on-surface leading-tight">
                     {isDark ? 'Light Theme' : 'Dark Theme'}
