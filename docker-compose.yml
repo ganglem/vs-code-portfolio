@@ -1,0 +1,22 @@
+services:
+  portfolio:
+    container_name: ganglem-portfolio
+    image: ganglem/vs-code-portfolio:latest
+    env_file:
+      - .env
+    networks:
+      - web
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ganglem-space.rule=Host(`emilija.dev`)
+      - traefik.http.routers.ganglem-space.entrypoints=websecure
+      - traefik.http.routers.ganglem-space.tls=true
+      - traefik.http.routers.ganglem-space.tls.certresolver=le-emilija
+      - traefik.http.services.ganglem-space.loadbalancer.server.port=3000
+      - traefik.docker.network=web
+      - com.centurylinklabs.watchtower.enable=true
+
+networks:
+  web:
+    external: true

@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# IDE
+.idea/
+.vscode/
+
+# env
+.env*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LaTeX build artifacts
+cv/*.aux
+cv/*.fdb_latexmk
+cv/*.fls
+cv/*.log
+cv/*.out
+cv/*.synctex.gz
+cv/*.pdf
