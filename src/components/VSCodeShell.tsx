@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { TABS, type TabId } from '@/lib/tabs'
 
 interface Props {
-  activeTab: TabId | null
+  activeTab: TabId
   children: React.ReactNode
 }
 
@@ -51,7 +51,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
   const activeTabData = activeTab ? TABS.find((t) => t.id === activeTab) ?? null : null
 
   return (
-    <div className="flex h-screen w-full flex-col overflow-hidden bg-surface-container-lowest">
+    <div className="flex h-[100dvh] w-full flex-col overflow-hidden bg-surface-container-lowest">
 
       {/* ── TopAppBar ─────────────────────────────────────────────────────── */}
       <header className="shrink-0 flex items-center gap-3 px-4 h-8 bg-surface-container-low z-50 border-b border-outline-variant/30">
@@ -95,7 +95,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
           </div>
 
           {/* Social links + settings — pushed to bottom */}
-          <div className="mt-auto flex flex-col items-center gap-3 pb-0">
+          <div className="mt-auto w-full flex flex-col items-center gap-3 pb-0">
             <a
               href="https://www.linkedin.com/in/emilijak/"
               target="_blank"
@@ -128,10 +128,10 @@ export function VSCodeShell({ activeTab, children }: Props) {
                 }
               }}
               className={[
-                'transition-all',
+                'w-full flex justify-center py-2 transition-all',
                 sidebarOpen && sidebarView === 'settings'
                   ? 'border-l-2 border-outline-variant/60 text-on-surface-variant'
-                  : 'text-on-surface-variant opacity-50 hover:opacity-100',
+                  : 'border-l-2 border-transparent text-on-surface-variant opacity-50 hover:opacity-100',
               ].join(' ')}
               title="Settings"
               aria-label="Toggle settings"
@@ -282,7 +282,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
             </div>
 
             {/* Editor content */}
-            <div className="flex-grow overflow-auto scrollbar-ide bg-surface">
+            <div className="flex-grow overflow-y-auto overflow-x-hidden scrollbar-ide bg-surface">
               {openTabs.length === 0 || !activeTab ? (
                 // Empty state — no tabs open
                 <div className="h-full flex flex-col items-center justify-center select-none pointer-events-none">
@@ -308,10 +308,6 @@ export function VSCodeShell({ activeTab, children }: Props) {
 
       {/* ── Status Bar ────────────────────────────────────────────────────── */}
       <footer className="shrink-0 flex items-center h-6 px-2 gap-3 bg-surface-container-low font-sans tracking-wide text-[10px] text-on-surface-variant z-50 border-t border-outline-variant/30">
-        <div className="flex items-center gap-1 hover:bg-surface-container px-1 h-full cursor-pointer opacity-70">
-          <span className="material-symbols-outlined text-[12px]">account_tree</span>
-          <span>main</span>
-        </div>
         <div className="flex-grow" />
         <div className="flex items-center gap-3 opacity-70 pr-2">
           <span className="hidden sm:block hover:bg-surface-container px-1 cursor-pointer">UTF-8</span>

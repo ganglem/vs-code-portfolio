@@ -236,7 +236,8 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   overscroll-behavior-x: none;
   background-color: var(--bg-editor);
   color: var(--text-sub);

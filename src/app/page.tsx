@@ -3,7 +3,7 @@ import { Introduction } from '@/components/pages/Introduction'
 import { Experience } from '@/components/pages/Experience'
 import { Education } from '@/components/pages/Education'
 import { Projects } from '@/components/pages/Projects'
-import { isValidTab, type TabId } from '@/lib/tabs'
+import { isValidTab, DEFAULT_TAB, type TabId } from '@/lib/tabs'
 
 interface PageProps {
   searchParams: Promise<{ tab?: string }>
@@ -18,11 +18,11 @@ const CONTENT: Record<TabId, React.ReactNode> = {
 
 export default async function Page({ searchParams }: PageProps) {
   const { tab } = await searchParams
-  const activeTab: TabId | null = isValidTab(tab) ? tab : null
+  const activeTab: TabId = isValidTab(tab) ? tab : DEFAULT_TAB
 
   return (
     <VSCodeShell activeTab={activeTab}>
-      {activeTab ? CONTENT[activeTab] : null}
+      {CONTENT[activeTab]}
     </VSCodeShell>
   )
 }
