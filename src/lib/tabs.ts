@@ -21,7 +21,6 @@ export const TABS: Tab[] = [
     label: 'Introduction.md',
     icon: 'description',
     iconColor: 'text-tertiary',
-    iconSize: 'text-[11px]',
     language: 'Markdown',
   },
   {
@@ -29,7 +28,6 @@ export const TABS: Tab[] = [
     label: 'Experience.py',
     icon: 'code',
     iconColor: 'text-[#4ec9b0]',
-    iconSize: 'text-[11px]',
     language: 'Python 3',
   },
   {

@@ -54,9 +54,9 @@ export function VSCodeShell({ activeTab, children }: Props) {
     <div className="flex h-screen w-full flex-col overflow-hidden bg-surface-container-lowest">
 
       {/* ── TopAppBar ─────────────────────────────────────────────────────── */}
-      <header className="shrink-0 flex items-center gap-3 px-4 h-9 bg-surface z-50 border-b border-outline-variant/10">
-        <span className="font-sans font-bold text-[11px] uppercase tracking-wider text-primary-container">
-          Portfolio — VS Code
+      <header className="shrink-0 flex items-center gap-3 px-4 h-8 bg-surface-container-low z-50 border-b border-outline-variant/30">
+        <span className="font-sans font-bold text-[11px] uppercase tracking-wider text-on-surface-variant opacity-50">
+          CV - Emilija Kastratović
         </span>
 
         <div className="flex-grow" />
@@ -73,7 +73,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
       <div className="flex flex-grow overflow-hidden">
 
         {/* ── Activity Bar ─────────────────────────────────────────────── */}
-        <nav className="w-12 bg-surface-container-lowest shrink-0 flex flex-col items-center py-4 gap-1 z-40 border-r border-outline-variant/10">
+        <nav className="w-12 bg-surface-container-low shrink-0 flex flex-col items-center py-4 gap-1 z-40 border-r border-outline-variant/30">
           {/* Explorer toggle */}
           <button
             onClick={() => {
@@ -92,18 +92,13 @@ export function VSCodeShell({ activeTab, children }: Props) {
             ].join(' ')}
             aria-label="Toggle explorer"
           >
-            <span className="material-symbols-outlined">folder_open</span>
+            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>folder_open</span>
           </button>
 
-          {/* Decorative icons */}
-          {(['search', 'conversion_path', 'play_arrow', 'extension'] as const).map((icon) => (
-            <div
-              key={icon}
-              className="w-full flex justify-center py-2 text-on-surface-variant opacity-50 hover:opacity-100 hover:text-primary transition-all cursor-pointer"
-            >
-              <span className="material-symbols-outlined">{icon}</span>
-            </div>
-          ))}
+          {/* Search toggle */}
+          <div className="w-full flex justify-center py-2 text-on-surface-variant opacity-50 hover:opacity-100 hover:text-primary transition-all cursor-pointer">
+            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>search</span>
+          </div>
 
           {/* Social links + settings — pushed to bottom */}
           <div className="mt-auto flex flex-col items-center gap-3 pb-2">
@@ -147,7 +142,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
               title="Settings"
               aria-label="Toggle settings"
             >
-              <span className="material-symbols-outlined">settings</span>
+              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>settings</span>
             </button>
           </div>
         </nav>
@@ -159,8 +154,8 @@ export function VSCodeShell({ activeTab, children }: Props) {
           <aside
             className={[
               'absolute lg:relative inset-y-0 left-0 z-50',
-              'flex flex-col font-mono text-[13px] tracking-tight shrink-0 w-56 overflow-hidden',
-              'bg-surface-container border-r border-outline-variant/10',
+              'flex flex-col font-sans text-[13px] tracking-tight shrink-0 w-56 overflow-hidden',
+              'bg-surface-container-low border-r border-outline-variant/30',
               'transition-[transform,width] duration-200 ease-in-out',
               sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0 lg:w-0',
             ].join(' ')}
@@ -184,16 +179,16 @@ export function VSCodeShell({ activeTab, children }: Props) {
                 <div className="flex flex-col overflow-y-auto scrollbar-ide">
                   <button
                     onClick={() => setFolderOpen((v) => !v)}
-                    className="flex items-center gap-1 px-2 py-1 bg-surface-container-high text-on-surface-variant shrink-0 w-full text-left hover:bg-surface-container-highest transition-colors"
+                    className="flex items-center gap-1 px-2 py-0.5 bg-surface-container-low text-on-surface-variant shrink-0 w-full text-left hover:bg-surface-container transition-colors"
                   >
-                    <span className={`material-symbols-outlined text-[14px] transition-transform duration-150 ${folderOpen ? 'rotate-0' : '-rotate-90'}`}>
+                    <span className={`material-symbols-outlined text-[15px] transition-transform duration-150 ${folderOpen ? 'rotate-0' : '-rotate-90'}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
                       keyboard_arrow_down
                     </span>
                     <span className="text-[11px] font-sans font-bold uppercase tracking-tight">Portfolio</span>
                   </button>
 
                   {folderOpen && (
-                    <div className="flex flex-col pl-4">
+                    <div className="flex flex-col">
                       {TABS.map((tab) => {
                         const isActive = tab.id === activeTab
                         return (
@@ -202,13 +197,13 @@ export function VSCodeShell({ activeTab, children }: Props) {
                             href={`/?tab=${tab.id}`}
                             onClick={() => { if (window.innerWidth < 1024) setSidebarOpen(false) }}
                             className={[
-                              'flex items-center gap-2 px-2 py-1 transition-colors whitespace-nowrap',
+                              'flex items-center gap-1 px-2 py-0 transition-colors whitespace-nowrap tracking-wide',
                               isActive
-                                ? 'bg-surface text-primary border-l-2 border-primary-container'
-                                : 'text-on-surface-variant opacity-60 hover:opacity-100 hover:bg-surface-container-high',
+                                ? 'bg-surface-container-high text-on-surface-variant'
+                                : 'text-on-surface-variant hover:bg-surface-container',
                             ].join(' ')}
                           >
-                            <span className={`material-symbols-outlined ${tab.iconSize ?? 'text-[14px]'} ${tab.iconColor}`}>
+                            <span className={`material-symbols-outlined ${tab.iconSize ?? 'text-[15px]'} ${tab.iconColor}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
                               {tab.icon}
                             </span>
                             <span>{tab.label}</span>
@@ -251,7 +246,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
           <main className="flex-grow flex flex-col overflow-hidden min-w-0">
 
             {/* Tab Bar */}
-            <div className="shrink-0 flex h-9 bg-surface-container-lowest overflow-x-auto scrollbar-ide border-b border-outline-variant/5">
+            <div className="shrink-0 flex h-8 bg-surface-container-low overflow-x-auto scrollbar-ide border-b border-outline-variant/30">
               {openTabs.map((tabId) => {
                 const tab = TABS.find((t) => t.id === tabId)!
                 const isActive = tabId === activeTab
@@ -259,27 +254,30 @@ export function VSCodeShell({ activeTab, children }: Props) {
                   <div
                     key={tabId}
                     className={[
-                      'flex items-center gap-1.5 px-3 h-full font-mono text-[12px] shrink-0 group relative',
+                      'flex items-center gap-1 px-3 h-full font-sans text-[12px] tracking-wide shrink-0 group relative',
                       isActive
-                        ? 'bg-surface border-t-2 border-primary-container text-on-surface'
-                        : 'bg-surface-container text-on-surface-variant opacity-60 hover:opacity-90 hover:bg-surface-container-high',
+                        ? 'bg-surface border-t border-primary-container text-on-surface-variant'
+                        : 'bg-surface-container-low border-t border-transparent text-on-surface-variant opacity-50 hover:opacity-80 hover:bg-surface-container',
                     ].join(' ')}
                   >
                     {/* Tab label — clicking switches to it */}
                     <Link
                       href={`/?tab=${tab.id}`}
-                      className="flex items-center gap-1.5"
+                      className="flex items-center gap-1"
                     >
-                      <span className={`material-symbols-outlined text-[13px] ${tab.iconColor}`}>
+                      <span className={`material-symbols-outlined text-[12px] ${tab.iconColor}`}>
                         {tab.icon}
                       </span>
-                      <span className="whitespace-nowrap pr-1">{tab.label}</span>
+                      <span className="whitespace-nowrap pr-1 tracking-wide">{tab.label}</span>
                     </Link>
 
-                    {/* Close button */}
+                    {/* Close button — always visible on active tab, hover-only on inactive */}
                     <button
                       onClick={(e) => closeTab(tabId, e)}
-                      className="flex items-center justify-center w-4 h-4 rounded-full hover:bg-surface-container-high opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-opacity shrink-0"
+                      className={[
+                        'flex items-center justify-center w-4 h-4 hover:bg-surface-container-high transition-opacity shrink-0',
+                        isActive ? 'opacity-40 hover:!opacity-100' : 'opacity-0 group-hover:opacity-60 hover:!opacity-100',
+                      ].join(' ')}
                       aria-label={`Close ${tab.label}`}
                     >
                       <span className="material-symbols-outlined text-[11px]" style={{ fontVariationSettings: "'wght' 200" }}>close</span>
@@ -315,18 +313,18 @@ export function VSCodeShell({ activeTab, children }: Props) {
       </div>
 
       {/* ── Status Bar ────────────────────────────────────────────────────── */}
-      <footer className="shrink-0 flex items-center h-6 px-2 gap-3 bg-surface-container-lowest font-mono text-[10px] text-primary z-50">
-        <div className="flex items-center gap-1 bg-primary-container text-on-primary-container px-2 h-full cursor-pointer">
+      <footer className="shrink-0 flex items-center h-6 px-2 gap-3 bg-surface-container-low font-mono text-[10px] text-on-surface-variant z-50 border-t border-outline-variant/30">
+        <div className="flex items-center gap-1 hover:bg-surface-container px-1 h-full cursor-pointer opacity-70">
           <span className="material-symbols-outlined text-[12px]">account_tree</span>
           <span>main</span>
         </div>
-        <div className="flex items-center gap-2 opacity-70">
+        <div className="flex items-center gap-2 opacity-50">
           <div className="flex items-center gap-1 hover:bg-surface-container px-1 h-full cursor-pointer">
-            <span className="material-symbols-outlined text-[12px] text-error">error_outline</span>
+            <span className="material-symbols-outlined text-[12px]">error_outline</span>
             <span>0</span>
           </div>
           <div className="flex items-center gap-1 hover:bg-surface-container px-1 h-full cursor-pointer">
-            <span className="material-symbols-outlined text-[12px] text-tertiary">warning_amber</span>
+            <span className="material-symbols-outlined text-[12px]">warning_amber</span>
             <span>0</span>
           </div>
         </div>
