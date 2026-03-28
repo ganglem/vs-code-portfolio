@@ -6,12 +6,9 @@ Personal portfolio — a VS Code dark IDE aesthetic built with Next.js 15. Live 
 
 ## ✨ Stack
 
-| Layer | Tech |
-|---|---|
-| Framework | Next.js 15 App Router, TypeScript |
-| Styling | Tailwind CSS v3 |
-| Deployment | Docker + Traefik + Watchtower |
-| CI/CD | GitHub Actions |
+<p align="center">
+<img src="https://skillicons.dev/icons?i=next,ts,tailwind,docker"/>
+</p>
 
 ---
 
