@@ -12,22 +12,22 @@ const MatterBody = dynamic(
 const SKILL_GROUPS = [
   {
     label: 'Languages',
-    color: 'bg-[#4ec9b0] text-[#0d0f15]',
+    color: 'bg-[#FF2464] text-white',
     skills: ['Python', 'TypeScript', 'JavaScript', 'Java', 'Bash'],
   },
   {
     label: 'Frameworks',
-    color: 'bg-[#569cd6] text-white',
+    color: 'bg-[005EFF] text-white',
     skills: ['Next.js', 'React', 'Vue', 'Three.js', 'Framer Motion', 'Apache Kafka', 'Supabase'],
   },
   {
     label: 'Tools',
-    color: 'bg-[#ce9178] text-[#0d0f15]',
+    color: 'bg-[30FF78] text-white',
     skills: ['Docker', 'Git', 'Jenkins', 'Figma', 'Burp Suite', 'Kali Linux'],
   },
   {
     label: 'Domains',
-    color: 'bg-[#c586c0] text-white',
+    color: 'bg-[#8A30FF] text-white',
     skills: ['Cybersecurity', 'Penetration Testing', 'Full-Stack Dev', 'R&D', 'LLM / AI'],
   },
 ]
@@ -40,7 +40,7 @@ const ALL_BUBBLES = SKILL_GROUPS.flatMap((group) =>
 export function Skills() {
   return (
     <div className="relative w-full h-full">
-      <Gravity gravity={{ x: 0, y: 0.5 }} resetOnResize={false} className="w-full h-full">
+      <Gravity gravity={{ x: 0, y: 0.5 }} className="w-full h-full">
         {ALL_BUBBLES.map(({ skill, color }, i) => (
           <MatterBody
             key={skill}
