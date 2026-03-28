@@ -61,12 +61,6 @@ export function VSCodeShell({ activeTab, children }: Props) {
 
         <div className="flex-grow" />
 
-        {/* Window controls (decorative) */}
-        <div className="flex items-center gap-2 opacity-40">
-          <span className="material-symbols-outlined text-[14px]">remove</span>
-          <span className="material-symbols-outlined text-[14px]">check_box_outline_blank</span>
-          <span className="material-symbols-outlined text-[11px]" style={{ fontVariationSettings: "'wght' 200" }}>close</span>
-        </div>
       </header>
 
       {/* ── Body ──────────────────────────────────────────────────────────── */}
