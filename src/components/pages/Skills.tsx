@@ -17,12 +17,12 @@ const SKILL_GROUPS = [
   },
   {
     label: 'Frameworks',
-    color: 'bg-[005EFF] text-white',
+    color: 'bg-[#005EFF] text-white',
     skills: ['Next.js', 'React', 'Vue', 'Three.js', 'Framer Motion', 'Apache Kafka', 'Supabase'],
   },
   {
     label: 'Tools',
-    color: 'bg-[30FF78] text-white',
+    color: 'bg-[#30FF78] text-white',
     skills: ['Docker', 'Git', 'Jenkins', 'Figma', 'Burp Suite', 'Kali Linux'],
   },
   {

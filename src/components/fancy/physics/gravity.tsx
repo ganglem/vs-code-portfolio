@@ -240,7 +240,6 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       if (left)   Body.setPosition(left,   { x: -10,    y: h / 2  })
       if (top)    Body.setPosition(top,    { x: w / 2,  y: -10    })
 
-      setCanvasSize({ width: w, height: h })
     }, [])
 
     const clearRenderer = useCallback(() => {
