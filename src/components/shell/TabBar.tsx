@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef } from 'react'
 import Link from 'next/link'
 import { X } from 'lucide-react'
 import {
@@ -10,6 +11,7 @@ import {
   closestCenter,
   type DragEndEvent,
 } from '@dnd-kit/core'
+import { restrictToHorizontalAxis } from '@dnd-kit/modifiers'
 import {
   SortableContext,
   horizontalListSortingStrategy,
@@ -23,9 +25,10 @@ interface TabItemProps {
   tabId: TabId
   activeTab: TabId
   onClose: (tabId: TabId, e: React.MouseEvent) => void
+  justDragged: React.RefObject<boolean>
 }
 
-function SortableTab({ tabId, activeTab, onClose }: TabItemProps) {
+function SortableTab({ tabId, activeTab, onClose, justDragged }: TabItemProps) {
   const tab = TABS.find((t) => t.id === tabId)!
   const isActive = tabId === activeTab
   const Icon = tab.icon
@@ -52,7 +55,11 @@ function SortableTab({ tabId, activeTab, onClose }: TabItemProps) {
           : 'bg-surface-container-low border-t border-transparent text-on-surface-variant opacity-65 hover:opacity-100 hover:bg-surface-container-highest',
       ].join(' ')}
     >
-      <Link href={`/?tab=${tab.id}`} className="flex items-center gap-1" onClick={(e) => isDragging && e.preventDefault()}>
+      <Link
+        href={`/?tab=${tab.id}`}
+        className="flex items-center gap-1"
+        onClick={(e) => { if (justDragged.current) e.preventDefault() }}
+      >
         <Icon size={12} className={tab.iconColor} />
         <span className="whitespace-nowrap pr-1 tracking-wide">{tab.label}</span>
       </Link>
@@ -81,22 +88,32 @@ interface Props {
 
 export function TabBar({ openTabs, activeTab, onClose, onReorder }: Props) {
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }))
+  const justDragged = useRef(false)
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event
     if (over && active.id !== over.id) {
+      justDragged.current = true
       const oldIndex = openTabs.indexOf(active.id as TabId)
       const newIndex = openTabs.indexOf(over.id as TabId)
       onReorder(arrayMove(openTabs, oldIndex, newIndex))
     }
+    // Clear after the click event that follows pointerUp has fired
+    setTimeout(() => { justDragged.current = false }, 100)
   }
 
   return (
-    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+    <DndContext
+      id="tab-dnd-context"
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      modifiers={[restrictToHorizontalAxis]}
+      onDragEnd={handleDragEnd}
+    >
       <SortableContext items={openTabs} strategy={horizontalListSortingStrategy}>
         <div className="shrink-0 flex h-8 bg-surface-container-low overflow-x-auto scrollbar-ide border-b border-outline-variant/30">
           {openTabs.map((tabId) => (
-            <SortableTab key={tabId} tabId={tabId} activeTab={activeTab} onClose={onClose} />
+            <SortableTab key={tabId} tabId={tabId} activeTab={activeTab} onClose={onClose} justDragged={justDragged} />
           ))}
         </div>
       </SortableContext>
