@@ -81,7 +81,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
             className={[
               'w-full flex justify-center py-2 transition-all',
               sidebarOpen && sidebarView === 'explorer'
-                ? 'border-l-2 border-outline-variant/60 text-on-surface-variant'
+                ? 'border-l-2 border-on-surface text-on-surface'
                 : 'border-l-2 border-transparent text-on-surface-variant opacity-50 hover:opacity-100',
             ].join(' ')}
             aria-label="Toggle explorer"
@@ -130,7 +130,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
               className={[
                 'w-full flex justify-center py-2 transition-all',
                 sidebarOpen && sidebarView === 'settings'
-                  ? 'border-l-2 border-outline-variant/60 text-on-surface-variant'
+                  ? 'border-l-2 border-on-surface text-on-surface'
                   : 'border-l-2 border-transparent text-on-surface-variant opacity-50 hover:opacity-100',
               ].join(' ')}
               title="Settings"
@@ -191,13 +191,13 @@ export function VSCodeShell({ activeTab, children }: Props) {
                             href={`/?tab=${tab.id}`}
                             onClick={() => { if (window.innerWidth < 1024) setSidebarOpen(false) }}
                             className={[
-                              'flex items-center gap-1 px-2 py-0 transition-colors whitespace-nowrap tracking-wide',
+                              'group flex items-center gap-1 px-2 py-0.5 mx-1 transition-colors whitespace-nowrap tracking-wide rounded-xl',
                               isActive
-                                ? 'bg-surface-container-high text-on-surface-variant'
-                                : 'text-on-surface-variant hover:bg-surface-container',
+                                ? 'bg-surface-container-highest text-on-surface'
+                                : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface',
                             ].join(' ')}
                           >
-                            <span className={`material-symbols-outlined ${tab.iconSize ?? 'text-[15px]'} ${tab.iconColor}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
+                            <span className={`material-symbols-outlined ${tab.iconSize ?? 'text-[15px]'} ${tab.iconColor} transition-opacity ${isActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`} style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
                               {tab.icon}
                             </span>
                             <span>{tab.label}</span>
@@ -216,7 +216,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
                     </p>
                     <button
                       onClick={toggleTheme}
-                      className="flex items-center gap-3 px-2 py-2.5 w-full text-left hover:bg-surface-container-high transition-colors"
+                      className="flex items-center gap-3 px-2 py-2.5 w-full text-left hover:bg-surface-container-highest transition-colors rounded-xl"
                     >
                       <span className="material-symbols-outlined text-[18px] text-primary shrink-0">
                         {isDark ? 'light_mode' : 'dark_mode'}
@@ -248,10 +248,10 @@ export function VSCodeShell({ activeTab, children }: Props) {
                   <div
                     key={tabId}
                     className={[
-                      'flex items-center gap-1 px-3 h-full font-sans text-[12px] tracking-wide shrink-0 group relative',
+                      'flex items-center gap-1 px-3 h-full font-sans text-[12px] tracking-wide shrink-0 group relative rounded-t-sm',
                       isActive
-                        ? 'bg-surface border-t border-primary-container text-on-surface-variant'
-                        : 'bg-surface-container-low border-t border-transparent text-on-surface-variant opacity-50 hover:opacity-80 hover:bg-surface-container',
+                        ? 'bg-surface border-t border-primary-container text-on-surface'
+                        : 'bg-surface-container-low border-t border-transparent text-on-surface-variant opacity-65 hover:opacity-100 hover:bg-surface-container-highest',
                     ].join(' ')}
                   >
                     {/* Tab label — clicking switches to it */}

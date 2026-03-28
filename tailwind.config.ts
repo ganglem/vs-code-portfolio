@@ -83,10 +83,10 @@ const config: Config = {
       borderRadius: {
         DEFAULT: '0px',
         none: '0px',
-        sm: '0px',
+        sm: '0.25rem',
         md: '0px',
         lg: '0px',
-        xl: '0px',
+        xl: '0.5rem',
         '2xl': '0px',
         '3xl': '0px',
         full: '9999px',
