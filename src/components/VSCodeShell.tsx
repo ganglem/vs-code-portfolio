@@ -73,7 +73,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
       <div className="flex flex-grow overflow-hidden">
 
         {/* ── Activity Bar ─────────────────────────────────────────────── */}
-        <nav className="w-12 bg-surface-container-low shrink-0 flex flex-col items-center py-4 gap-1 z-40 border-r border-outline-variant/30">
+        <nav className="w-12 bg-surface-container-low shrink-0 flex flex-col items-center pt-0 pb-4 gap-1 z-40 border-r border-outline-variant/30">
           {/* Explorer toggle */}
           <button
             onClick={() => {
@@ -87,8 +87,8 @@ export function VSCodeShell({ activeTab, children }: Props) {
             className={[
               'w-full flex justify-center py-2 transition-all',
               sidebarOpen && sidebarView === 'explorer'
-                ? 'border-l-2 border-primary-container text-primary'
-                : 'border-l-2 border-transparent text-on-surface-variant opacity-50 hover:opacity-100 hover:text-primary',
+                ? 'border-l-2 border-outline-variant/60 text-on-surface-variant'
+                : 'border-l-2 border-transparent text-on-surface-variant opacity-50 hover:opacity-100',
             ].join(' ')}
             aria-label="Toggle explorer"
           >
@@ -96,17 +96,17 @@ export function VSCodeShell({ activeTab, children }: Props) {
           </button>
 
           {/* Search toggle */}
-          <div className="w-full flex justify-center py-2 text-on-surface-variant opacity-50 hover:opacity-100 hover:text-primary transition-all cursor-pointer">
+          <div className="w-full flex justify-center py-2 text-on-surface-variant opacity-50 hover:opacity-100 transition-all cursor-pointer">
             <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>search</span>
           </div>
 
           {/* Social links + settings — pushed to bottom */}
-          <div className="mt-auto flex flex-col items-center gap-3 pb-2">
+          <div className="mt-auto flex flex-col items-center gap-3 pb-0">
             <a
               href="https://www.linkedin.com/in/emilijak/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-on-surface-variant opacity-50 hover:opacity-100 hover:text-primary transition-all"
+              className="text-on-surface-variant opacity-50 hover:opacity-100 transition-all"
               title="LinkedIn"
             >
               <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
               href="https://github.com/ganglem"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-on-surface-variant opacity-50 hover:opacity-100 hover:text-primary transition-all"
+              className="text-on-surface-variant opacity-50 hover:opacity-100 transition-all"
               title="GitHub"
             >
               <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
@@ -136,8 +136,8 @@ export function VSCodeShell({ activeTab, children }: Props) {
               className={[
                 'transition-all',
                 sidebarOpen && sidebarView === 'settings'
-                  ? 'border-l-2 border-primary-container text-primary'
-                  : 'text-on-surface-variant opacity-50 hover:opacity-100 hover:text-primary',
+                  ? 'border-l-2 border-outline-variant/60 text-on-surface-variant'
+                  : 'text-on-surface-variant opacity-50 hover:opacity-100',
               ].join(' ')}
               title="Settings"
               aria-label="Toggle settings"
@@ -313,24 +313,13 @@ export function VSCodeShell({ activeTab, children }: Props) {
       </div>
 
       {/* ── Status Bar ────────────────────────────────────────────────────── */}
-      <footer className="shrink-0 flex items-center h-6 px-2 gap-3 bg-surface-container-low font-mono text-[10px] text-on-surface-variant z-50 border-t border-outline-variant/30">
+      <footer className="shrink-0 flex items-center h-6 px-2 gap-3 bg-surface-container-low font-sans tracking-wide text-[10px] text-on-surface-variant z-50 border-t border-outline-variant/30">
         <div className="flex items-center gap-1 hover:bg-surface-container px-1 h-full cursor-pointer opacity-70">
           <span className="material-symbols-outlined text-[12px]">account_tree</span>
           <span>main</span>
         </div>
-        <div className="flex items-center gap-2 opacity-50">
-          <div className="flex items-center gap-1 hover:bg-surface-container px-1 h-full cursor-pointer">
-            <span className="material-symbols-outlined text-[12px]">error_outline</span>
-            <span>0</span>
-          </div>
-          <div className="flex items-center gap-1 hover:bg-surface-container px-1 h-full cursor-pointer">
-            <span className="material-symbols-outlined text-[12px]">warning_amber</span>
-            <span>0</span>
-          </div>
-        </div>
         <div className="flex-grow" />
         <div className="flex items-center gap-3 opacity-70 pr-2">
-          <span className="hidden sm:block hover:bg-surface-container px-1 cursor-pointer">Spaces: 2</span>
           <span className="hidden sm:block hover:bg-surface-container px-1 cursor-pointer">UTF-8</span>
           <span className="hover:bg-surface-container px-1 cursor-pointer">
             {activeTabData?.language ?? 'Plain Text'}
