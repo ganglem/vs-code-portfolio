@@ -91,15 +91,16 @@ export function TabBar({ openTabs, activeTab, onClose, onReorder }: Props) {
   const justDragged = useRef(false)
 
   function handleDragEnd(event: DragEndEvent) {
+    // Block the click that always fires after pointerUp — even if no reorder happened
+    justDragged.current = true
+    setTimeout(() => { justDragged.current = false }, 100)
+
     const { active, over } = event
     if (over && active.id !== over.id) {
-      justDragged.current = true
       const oldIndex = openTabs.indexOf(active.id as TabId)
       const newIndex = openTabs.indexOf(over.id as TabId)
       onReorder(arrayMove(openTabs, oldIndex, newIndex))
     }
-    // Clear after the click event that follows pointerUp has fired
-    setTimeout(() => { justDragged.current = false }, 100)
   }
 
   return (
@@ -111,7 +112,12 @@ export function TabBar({ openTabs, activeTab, onClose, onReorder }: Props) {
       onDragEnd={handleDragEnd}
     >
       <SortableContext items={openTabs} strategy={horizontalListSortingStrategy}>
-        <div className="shrink-0 flex h-8 bg-surface-container-low overflow-x-auto scrollbar-ide border-b border-outline-variant/30">
+        {/* onClickCapture blocks any click in the tab bar immediately after a drag,
+            before it can reach a Link and trigger navigation */}
+        <div
+          className="shrink-0 flex h-8 bg-surface-container-low overflow-x-auto scrollbar-ide border-b border-outline-variant/30"
+          onClickCapture={(e) => { if (justDragged.current) { e.stopPropagation(); e.preventDefault() } }}
+        >
           {openTabs.map((tabId) => (
             <SortableTab key={tabId} tabId={tabId} activeTab={activeTab} onClose={onClose} justDragged={justDragged} />
           ))}
