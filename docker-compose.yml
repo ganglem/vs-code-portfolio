@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     labels:
       - traefik.enable=true
-      - traefik.http.routers.ganglem-space.rule=Host(`ganglem.space`)
+      - traefik.http.routers.ganglem-space.rule=Host(`emilija.dev`)
       - traefik.http.routers.ganglem-space.entrypoints=websecure
       - traefik.http.routers.ganglem-space.tls=true
       - traefik.http.routers.ganglem-space.tls.certresolver=le-emilija
