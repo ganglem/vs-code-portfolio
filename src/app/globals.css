@@ -275,6 +275,19 @@ body {
   background: var(--scrollbar-track);
 }
 
+/* ─── Reusable component utilities ─────────────────────────────────────────── */
+
+@layer utilities {
+  /* Activity bar icon buttons */
+  .activity-btn         { @apply w-full flex justify-center py-2 transition-all; }
+  .activity-btn-active  { @apply border-l-2 border-on-surface text-on-surface; }
+  .activity-btn-inactive{ @apply border-l-2 border-transparent text-on-surface-variant opacity-50 hover:opacity-100; }
+
+  /* Code page shell shared by all four content pages */
+  .code-page    { @apply flex min-h-full font-mono text-sm leading-6; }
+  .code-content { @apply flex-grow min-w-0 break-words; }
+}
+
 /* ─── Syntax highlight helpers ──────────────────────────────────────────────── */
 
 .syn-keyword   { color: var(--syn-keyword); }

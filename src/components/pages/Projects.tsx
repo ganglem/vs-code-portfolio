@@ -50,10 +50,10 @@ const PROJECTS: Project[] = [
 
 export function Projects() {
   return (
-    <div className="flex min-h-full font-mono text-sm leading-6">
+    <div className="code-page">
       <LineNumbers count={85} />
 
-      <div className="flex-grow min-w-0 p-4 pb-12 break-words">
+      <div className="code-content p-4 pb-12">
 
         {/* ── File header ──────────────────────────────────────────────── */}
         <p>

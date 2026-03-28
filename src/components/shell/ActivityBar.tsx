@@ -6,15 +6,12 @@ interface Props {
 }
 
 export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onToggleSettings }: Props) {
-  const activeClass = 'border-l-2 border-on-surface text-on-surface'
-  const inactiveClass = 'border-l-2 border-transparent text-on-surface-variant opacity-50 hover:opacity-100'
-
   return (
     <nav className="w-12 bg-surface-container-low shrink-0 flex flex-col items-center pt-0 pb-4 gap-1 z-40 border-r border-outline-variant/30">
       {/* Explorer toggle */}
       <button
         onClick={onToggleExplorer}
-        className={['w-full flex justify-center py-2 transition-all', sidebarOpen && sidebarView === 'explorer' ? activeClass : inactiveClass].join(' ')}
+        className={['activity-btn', sidebarOpen && sidebarView === 'explorer' ? 'activity-btn-active' : 'activity-btn-inactive'].join(' ')}
         aria-label="Toggle explorer"
       >
         <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>folder_open</span>
@@ -51,7 +48,7 @@ export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onTogg
         </a>
         <button
           onClick={onToggleSettings}
-          className={['w-full flex justify-center py-2 transition-all', sidebarOpen && sidebarView === 'settings' ? activeClass : inactiveClass].join(' ')}
+          className={['activity-btn', sidebarOpen && sidebarView === 'settings' ? 'activity-btn-active' : 'activity-btn-inactive'].join(' ')}
           title="Settings"
           aria-label="Toggle settings"
         >
