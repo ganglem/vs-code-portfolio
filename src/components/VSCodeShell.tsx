@@ -30,6 +30,13 @@ export function VSCodeShell({ activeTab, children }: Props) {
     setIsDark(document.documentElement.classList.contains('dark'))
   }, [])
 
+  // After sidebar finishes sliding (200ms transition), fire a resize event so
+  // any fill-editor content (e.g. physics canvas) reflows to the new dimensions.
+  useEffect(() => {
+    const t = setTimeout(() => window.dispatchEvent(new Event('resize')), 220)
+    return () => clearTimeout(t)
+  }, [sidebarOpen])
+
   function closeTab(tabId: TabId, e: React.MouseEvent) {
     e.preventDefault()
     e.stopPropagation()
@@ -49,7 +56,8 @@ export function VSCodeShell({ activeTab, children }: Props) {
     try { localStorage.setItem('portfolio-theme', nowDark ? 'dark' : 'light') } catch (_) {}
   }
 
-  const language = TABS.find((t) => t.id === activeTab)?.language ?? null
+  const activeTabMeta = TABS.find((t) => t.id === activeTab)
+  const fillEditor = activeTabMeta?.fillEditor ?? false
 
   return (
     <div className="flex h-[100dvh] w-full flex-col overflow-hidden bg-surface-container-lowest">
@@ -84,14 +92,14 @@ export function VSCodeShell({ activeTab, children }: Props) {
           <main className="flex-grow flex flex-col overflow-hidden min-w-0">
             <TabBar openTabs={openTabs} activeTab={activeTab} onClose={closeTab} onReorder={setOpenTabs} />
 
-            <div className="flex-grow overflow-y-auto overflow-x-hidden scrollbar-ide bg-surface">
+            <div className={`flex-grow bg-surface ${fillEditor ? 'overflow-hidden' : 'overflow-y-auto overflow-x-hidden scrollbar-ide'}`}>
               {children}
             </div>
           </main>
         </div>
       </div>
 
-      <StatusBar language={language} />
+      <StatusBar language={activeTabMeta?.language ?? null} />
     </div>
   )
 }

@@ -39,7 +39,7 @@ const ALL_BUBBLES = SKILL_GROUPS.flatMap((group) =>
 
 export function Skills() {
   return (
-    <div className="relative w-full h-full min-h-[500px]">
+    <div className="relative w-full h-full">
       <Gravity gravity={{ x: 0, y: 0.5 }} className="w-full h-full">
         {ALL_BUBBLES.map(({ skill, color }, i) => (
           <MatterBody
@@ -50,7 +50,7 @@ export function Skills() {
             matterBodyOptions={{ restitution: 0.4, friction: 0.05, density: 0.002 }}
           >
             <span
-              className={`inline-flex items-center px-3 py-1.5 font-mono text-[11px] font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap shadow-md`}
+              className={`inline-flex items-center px-8 py-4 font-mono text-[3rem] font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap shadow-md`}
             >
               {skill}
             </span>

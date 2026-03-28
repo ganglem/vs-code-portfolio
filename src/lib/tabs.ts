@@ -14,6 +14,11 @@ export interface Tab {
   iconColor: string
   /** Language shown in the status bar */
   language: string
+  /**
+   * When true the editor area uses overflow-hidden and fills to exact height
+   * instead of scrolling. Use for canvas/physics/full-bleed pages.
+   */
+  fillEditor?: boolean
 }
 
 export const TABS: Tab[] = [
@@ -51,6 +56,7 @@ export const TABS: Tab[] = [
     icon: Sparkles,
     iconColor: 'text-primary',
     language: 'TypeScript',
+    fillEditor: true,
   },
 ]
 
