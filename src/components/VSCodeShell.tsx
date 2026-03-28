@@ -82,7 +82,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
           />
 
           <main className="flex-grow flex flex-col overflow-hidden min-w-0">
-            <TabBar openTabs={openTabs} activeTab={activeTab} onClose={closeTab} />
+            <TabBar openTabs={openTabs} activeTab={activeTab} onClose={closeTab} onReorder={setOpenTabs} />
 
             <div className="flex-grow overflow-y-auto overflow-x-hidden scrollbar-ide bg-surface">
               {children}
