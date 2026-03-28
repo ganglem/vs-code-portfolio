@@ -5,7 +5,7 @@ export function Introduction() {
     <div className="flex min-h-full font-mono text-sm leading-6">
       <LineNumbers count={60} />
 
-      <div className="flex-grow p-6 max-w-3xl">
+      <div className="flex-grow min-w-0 p-6 max-w-3xl break-words">
 
         {/* ── Profile header ───────────────────────────────────────────── */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center mb-10 gap-6">

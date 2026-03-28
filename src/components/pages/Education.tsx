@@ -5,7 +5,7 @@ export function Education() {
     <div className="flex min-h-full font-mono text-sm leading-6">
       <LineNumbers count={70} />
 
-      <div className="flex-grow p-4 pb-12">
+      <div className="flex-grow min-w-0 p-4 pb-12 break-words">
 
         {/* ── TypeScript prelude ───────────────────────────────────────── */}
         <p>
@@ -41,7 +41,7 @@ export function Education() {
         </div>
 
         {/* ── Bento grid ───────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 my-8 mr-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 my-8">
 
           {/* Main education card */}
           <div className="lg:col-span-2 bg-surface-container border-l-4 border-primary-container p-6 shadow-xl relative overflow-hidden group">
@@ -150,7 +150,7 @@ export function Education() {
         </div>
 
         {/* ── Export statement ─────────────────────────────────────────── */}
-        <div className="mr-4">
+        <div>
           <p>
             <span className="syn-keyword">export const</span>{' '}
             <span className="syn-variable">me</span>

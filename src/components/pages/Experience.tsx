@@ -64,7 +64,7 @@ export function Experience() {
     <div className="flex min-h-full font-mono text-sm leading-6">
       <LineNumbers count={80} />
 
-      <div className="flex-grow px-4 pt-4 pb-12">
+      <div className="flex-grow min-w-0 px-4 pt-4 pb-12 break-words">
 
         {/* ── File header ──────────────────────────────────────────────── */}
         <p>

@@ -53,7 +53,7 @@ export function Projects() {
     <div className="flex min-h-full font-mono text-sm leading-6">
       <LineNumbers count={85} />
 
-      <div className="flex-grow p-4 pb-12">
+      <div className="flex-grow min-w-0 p-4 pb-12 break-words">
 
         {/* ── File header ──────────────────────────────────────────────── */}
         <p>
