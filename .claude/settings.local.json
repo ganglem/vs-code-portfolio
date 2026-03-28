@@ -1,24 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install:*)",
-      "Bash(npm run:*)",
-      "Bash(curl -s http://localhost:3001)",
-      "Bash(curl -v http://localhost:3001)",
-      "Bash(curl -s http://192.168.56.1:3002)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://192.168.56.1:3002/?tab=experience\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://192.168.56.1:3002/?tab=education\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://192.168.56.1:3002/?tab=projects\")",
-      "Bash(find /mnt/c/Dev/code-pf -type f -name *.woff* -o -name *.ttf)",
-      "Bash(curl -s http://localhost:3003)",
-      "Bash(curl -v http://localhost:3003)",
-      "Bash(curl -s http://192.168.56.1:3004)",
-      "Bash(git init:*)",
-      "Bash(git branch:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git remote:*)",
-      "Bash(git push:*)"
+      "Bash",
+      "Edit(./**)",
+      "Skill(commit)",
+      "Skill(python)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
   }
 }
