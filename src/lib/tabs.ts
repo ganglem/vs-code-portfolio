@@ -1,49 +1,105 @@
-export const TAB_IDS = ['introduction', 'experience', 'education', 'projects'] as const
+import type { LucideIcon } from 'lucide-react'
+import { FileText, FileCode, FileCode2, Sparkles, FolderOpen, Gem, Atom } from 'lucide-react'
+
+export const TAB_IDS = ['introduction', 'experience', 'education', 'ropagen', 'findme', 'bierturnier', 'skills'] as const
 export type TabId = (typeof TAB_IDS)[number]
 
 export interface Tab {
   id: TabId
   /** Filename shown in the tab bar and sidebar */
   label: string
-  /** Material Symbol icon name */
-  icon: string
+  /** Lucide icon component */
+  icon: LucideIcon
   /** Tailwind text color class for the icon */
   iconColor: string
-  /** Tailwind text size class for the sidebar icon, defaults to text-[14px] */
-  iconSize?: string
   /** Language shown in the status bar */
   language: string
+  /**
+   * When true the editor area uses overflow-hidden and fills to exact height
+   * instead of scrolling. Use for canvas/physics/full-bleed pages.
+   */
+  fillEditor?: boolean
 }
+
+export interface SidebarFolder {
+  type: 'folder'
+  id: string
+  label: string
+  icon: LucideIcon
+  iconColor: string
+  children: Tab[]
+}
+
+export type SidebarItem = Tab | SidebarFolder
 
 export const TABS: Tab[] = [
   {
     id: 'introduction',
     label: 'Introduction.md',
-    icon: 'description',
-    iconColor: 'text-tertiary',
+    icon: FileText,
+    iconColor: 'text-code-orange',
     language: 'Markdown',
   },
   {
     id: 'experience',
     label: 'Experience.py',
-    icon: 'code',
-    iconColor: 'text-[#4ec9b0]',
+    icon: FileCode,
+    iconColor: 'text-code-teal',
     language: 'Python 3',
   },
   {
     id: 'education',
     label: 'Education.ts',
-    icon: 'javascript',
-    iconColor: 'text-primary-container',
+    icon: FileCode2,
+    iconColor: 'text-code-blue',
     language: 'TypeScript',
   },
   {
-    id: 'projects',
-    label: 'Projects.js',
-    icon: 'javascript',
-    iconColor: 'text-[#dcdcaa]',
-    language: 'JavaScript',
+    id: 'ropagen',
+    label: 'ROPAgen.tsx',
+    icon: Atom,
+    iconColor: 'text-code-blue',
+    language: 'TypeScript',
   },
+  {
+    id: 'findme',
+    label: 'FindMe.tsx',
+    icon: Atom,
+    iconColor: 'text-code-blue',
+    language: 'TypeScript',
+  },
+  {
+    id: 'bierturnier',
+    label: 'BierTurnier.rb',
+    icon: Gem,
+    iconColor: 'text-code-red',
+    language: 'Ruby',
+  },
+  {
+    id: 'skills',
+    label: 'Skills.tsx',
+    icon: Sparkles,
+    iconColor: 'text-code-blue',
+    language: 'TypeScript',
+    fillEditor: true,
+  },
+]
+
+const t = (id: TabId) => TABS.find((tab) => tab.id === id)!
+
+export const SIDEBAR_TREE: SidebarItem[] = [
+  t('introduction'),
+  t('experience'),
+  t('education'),
+  {
+    type: 'folder',
+    id: 'projects',
+    label: 'Projects',
+    icon: FolderOpen,
+    iconColor: 'text-code-yellow',
+    children: [t('ropagen'), t('findme'), t('bierturnier')],
+  },
+  t('skills'),
 ]
 
 export const DEFAULT_TAB: TabId = 'introduction'

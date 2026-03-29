@@ -61,15 +61,15 @@ const JOBS: Job[] = [
 
 export function Experience() {
   return (
-    <div className="flex min-h-full font-mono text-sm leading-6">
+    <div className="code-page">
       <LineNumbers count={80} />
 
-      <div className="flex-grow px-4 pt-4 pb-12">
+      <div className="code-content px-4 pt-4 pb-12">
 
         {/* ── File header ──────────────────────────────────────────────── */}
         <p>
           <span className="syn-keyword">import</span>{' '}
-          <span className="text-on-surface-variant">datetime</span>
+          <span className="text-muted">datetime</span>
         </p>
         <p className="syn-comment mt-1"># Professional career — Emilija Kastratović</p>
         <p className="mt-4">
@@ -83,43 +83,43 @@ export function Experience() {
             <p className="pl-4">
               <span className="syn-keyword">def</span>{' '}
               <span className="syn-function">{job.fn}</span>
-              <span className="text-on-surface-variant">(</span>
+              <span className="text-muted">(</span>
               <span className="syn-keyword">self</span>
-              <span className="text-on-surface-variant">):</span>
+              <span className="text-muted">):</span>
             </p>
 
-            <div className="pl-8 border-l border-outline-variant/20 ml-5 mt-1 space-y-0.5">
+            <div className="pl-8 border-l border-subtle/20 ml-5 mt-1 space-y-0.5">
               <p>
                 <span className="syn-variable">role</span>
-                <span className="text-on-surface-variant"> = </span>
+                <span className="text-muted"> = </span>
                 <span className="syn-string">&quot;{job.role}&quot;</span>
               </p>
               <p>
                 <span className="syn-variable">company</span>
-                <span className="text-on-surface-variant"> = </span>
+                <span className="text-muted"> = </span>
                 <span className="syn-string">&quot;{job.company}&quot;</span>
               </p>
               <p>
                 <span className="syn-variable">location</span>
-                <span className="text-on-surface-variant"> = </span>
+                <span className="text-muted"> = </span>
                 <span className="syn-string">&quot;{job.location}&quot;</span>
               </p>
               <p>
                 <span className="syn-variable">period</span>
-                <span className="text-on-surface-variant"> = </span>
+                <span className="text-muted"> = </span>
                 <span className="syn-string">&quot;{job.period}&quot;</span>
               </p>
               <p>
                 <span className="syn-variable">highlights</span>
-                <span className="text-on-surface-variant"> = [</span>
+                <span className="text-muted"> = [</span>
               </p>
               {job.bullets.map((b, bi) => (
                 <p key={bi} className="pl-4">
                   <span className="syn-string">&quot;{b}&quot;</span>
-                  <span className="text-on-surface-variant">,</span>
+                  <span className="text-muted">,</span>
                 </p>
               ))}
-              <p><span className="text-on-surface-variant">]</span></p>
+              <p><span className="text-muted">]</span></p>
             </div>
           </div>
         ))}
@@ -128,15 +128,15 @@ export function Experience() {
         <p className="mt-6 syn-comment"># End of ProfessionalExperience</p>
         <p className="mt-2">
           <span className="syn-keyword">if</span>
-          <span className="text-on-surface-variant"> __name__ == </span>
+          <span className="text-muted"> __name__ == </span>
           <span className="syn-string">&quot;__main__&quot;</span>
-          <span className="text-on-surface-variant">:</span>
+          <span className="text-muted">:</span>
         </p>
         <p className="pl-4">
           <span className="syn-function">print</span>
-          <span className="text-on-surface-variant">(</span>
+          <span className="text-muted">(</span>
           <span className="syn-string">&quot;Experience loaded successfully.&quot;</span>
-          <span className="text-on-surface-variant">)</span>
+          <span className="text-muted">)</span>
         </p>
       </div>
     </div>
