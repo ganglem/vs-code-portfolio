@@ -51,8 +51,8 @@ function SortableTab({ tabId, activeTab, onClose, justDragged }: TabItemProps) {
       className={[
         'flex items-center gap-1 px-3 h-full font-sans text-[12px] tracking-wide shrink-0 group relative rounded-t-sm select-none',
         isActive
-          ? 'bg-surface border-t border-primary-container text-on-surface'
-          : 'bg-surface-container-low border-t border-transparent text-on-surface-variant opacity-65 hover:opacity-100 hover:bg-surface-container-highest',
+          ? 'bg-surface border-t border-code-blue text-foreground'
+          : 'bg-surface-container-low border-t border-transparent text-muted opacity-65 hover:opacity-100 hover:bg-surface-container-highest',
       ].join(' ')}
     >
       <Link
@@ -115,7 +115,7 @@ export function TabBar({ openTabs, activeTab, onClose, onReorder }: Props) {
         {/* onClickCapture blocks any click in the tab bar immediately after a drag,
             before it can reach a Link and trigger navigation */}
         <div
-          className="shrink-0 flex h-8 bg-surface-container-low overflow-x-auto scrollbar-ide border-b border-outline-variant/30"
+          className="shrink-0 flex h-8 bg-surface-container-low overflow-x-auto scrollbar-ide border-b border-subtle/30"
           onClickCapture={(e) => { if (justDragged.current) { e.stopPropagation(); e.preventDefault() } }}
         >
           {openTabs.map((tabId) => (

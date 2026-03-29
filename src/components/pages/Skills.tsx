@@ -12,22 +12,22 @@ const MatterBody = dynamic(
 const SKILL_GROUPS = [
   {
     label: 'Languages',
-    color: 'bg-[#FF2464] text-white',
+    color: 'bg-skill-lang text-white',
     skills: ['Python', 'TypeScript', 'JavaScript', 'Java', 'Bash'],
   },
   {
     label: 'Frameworks',
-    color: 'bg-[#005EFF] text-white',
+    color: 'bg-skill-fw text-white',
     skills: ['Next.js', 'React', 'Three.js', 'Framer Motion', 'Apache Kafka', 'Supabase'],
   },
   {
     label: 'Tools',
-    color: 'bg-[#37ED8C] text-white',
+    color: 'bg-skill-tools text-white',
     skills: ['Docker', 'Git', 'Jenkins', 'Figma', 'Burp Suite', 'Kali Linux'],
   },
   {
     label: 'Domains',
-    color: 'bg-[#8A30FF] text-white',
+    color: 'bg-skill-domain text-white',
     skills: ['Cybersecurity', 'Penetration Testing', 'Full-Stack Dev', 'R&D', 'Generative AI'],
   },
 ]
@@ -50,7 +50,7 @@ export function Skills() {
             matterBodyOptions={{ restitution: 0.4, friction: 0.05, density: 0.002 }}
           >
             <span
-              className={`inline-flex items-center px-6 py-3 sm:px-10 sm:py-5 lg:px-16 lg:py-8 font-mono text-base sm:text-2xl lg:text-[3rem] font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap`}
+              className={`inline-flex items-center px-6 py-3 sm:px-10 sm:py-5 lg:px-16 lg:py-8 font-mono text-foreground sm:text-2xl lg:text-[3rem] font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap`}
             >
               {skill}
             </span>
@@ -63,7 +63,7 @@ export function Skills() {
         {SKILL_GROUPS.map((g) => (
           <div key={g.label} className="flex items-center gap-2">
             <span className={`w-2.5 h-2.5 rounded-full ${g.color}`} />
-            <span className="font-mono text-[10px] text-on-surface-variant opacity-60 uppercase tracking-widest">
+            <span className="font-mono text-[10px] text-muted opacity-60 uppercase tracking-widest">
               {g.label}
             </span>
           </div>

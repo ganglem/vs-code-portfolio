@@ -9,7 +9,7 @@ interface Props {
 
 export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onToggleSettings }: Props) {
   return (
-    <nav className="w-12 bg-surface-container-low shrink-0 flex flex-col items-center pt-0 pb-4 gap-1 z-40 border-r border-outline-variant/30">
+    <nav className="w-12 bg-surface-container-low shrink-0 flex flex-col items-center pt-0 pb-4 gap-1 z-40 border-r border-subtle/30">
       <button
         onClick={onToggleExplorer}
         className={['activity-btn', sidebarOpen && sidebarView === 'explorer' ? 'activity-btn-active' : 'activity-btn-inactive'].join(' ')}
@@ -18,7 +18,7 @@ export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onTogg
         <FolderOpen size={18} />
       </button>
 
-      <div className="w-full flex justify-center py-2 text-on-surface-variant opacity-50 hover:opacity-100 transition-all cursor-pointer">
+      <div className="w-full flex justify-center py-2 text-muted opacity-50 hover:opacity-100 transition-all cursor-pointer">
         <Search size={18} />
       </div>
 
@@ -27,7 +27,7 @@ export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onTogg
           href="https://www.linkedin.com/in/emilijak/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-on-surface-variant opacity-50 hover:opacity-100 transition-all"
+          className="text-muted opacity-50 hover:opacity-100 transition-all"
           title="LinkedIn"
         >
           <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
@@ -38,7 +38,7 @@ export function ActivityBar({ sidebarOpen, sidebarView, onToggleExplorer, onTogg
           href="https://github.com/ganglem"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-on-surface-variant opacity-50 hover:opacity-100 transition-all"
+          className="text-muted opacity-50 hover:opacity-100 transition-all"
           title="GitHub"
         >
           <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">

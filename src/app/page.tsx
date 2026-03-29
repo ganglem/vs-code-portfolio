@@ -2,7 +2,9 @@ import { VSCodeShell } from '@/components/VSCodeShell'
 import { Introduction } from '@/components/pages/Introduction'
 import { Experience } from '@/components/pages/Experience'
 import { Education } from '@/components/pages/Education'
-import { Projects } from '@/components/pages/Projects'
+import { ROPAgen } from '@/components/pages/projects/ROPAgen'
+import { FindMe } from '@/components/pages/projects/FindMe'
+import { BierTurnier } from '@/components/pages/projects/BierTurnier'
 import { Skills } from '@/components/pages/Skills'
 import { isValidTab, DEFAULT_TAB, type TabId } from '@/lib/tabs'
 
@@ -14,7 +16,9 @@ const CONTENT: Record<TabId, React.ReactNode> = {
   introduction: <Introduction />,
   experience: <Experience />,
   education: <Education />,
-  projects: <Projects />,
+  ropagen: <ROPAgen />,
+  findme: <FindMe />,
+  bierturnier: <BierTurnier />,
   skills: <Skills />,
 }
 

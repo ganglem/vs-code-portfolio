@@ -20,7 +20,6 @@ export function VSCodeShell({ activeTab, children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sidebarWidth, setSidebarWidth] = useState(224)
   const [sidebarView, setSidebarView] = useState<'explorer' | 'settings'>('explorer')
-  const [folderOpen, setFolderOpen] = useState(true)
   const [isDark, setIsDark] = useState(true)
 
   useEffect(() => {
@@ -77,11 +76,9 @@ export function VSCodeShell({ activeTab, children }: Props) {
             open={sidebarOpen}
             view={sidebarView}
             activeTab={activeTab}
-            folderOpen={folderOpen}
             isDark={isDark}
             width={sidebarWidth}
             onClose={() => setSidebarOpen(false)}
-            onFolderToggle={() => setFolderOpen((v) => !v)}
             onToggleTheme={toggleTheme}
             onWidthChange={setSidebarWidth}
           />
