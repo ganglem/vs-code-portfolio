@@ -46,10 +46,10 @@ const config: Config = {
 
         // ── Skill bubble colors ───────────────────────────────────────────────
         // Fixed vivid colors — intentionally no dark/light variants
-        'skill-lang':   'code-blue',
-        'skill-fw':     'code-red',
-        'skill-tools':  'code-green',
-        'skill-domain': 'code-purple',
+        'skill-lang':   'rgb(var(--code-blue-rgb)   / <alpha-value>)',
+        'skill-fw':     'rgb(var(--code-red-rgb)    / <alpha-value>)',
+        'skill-tools':  'rgb(var(--code-green-rgb)  / <alpha-value>)',
+        'skill-domain': 'rgb(var(--code-purple-rgb) / <alpha-value>)',
       },
       fontFamily: {
         sans:     ['SF Pro Display', 'SF Pro Text', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
