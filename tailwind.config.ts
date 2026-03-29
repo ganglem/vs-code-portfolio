@@ -3,6 +3,7 @@ import type { Config } from 'tailwindcss'
 const config: Config = {
   darkMode: 'class',
   content: ['./src/**/*.{ts,tsx}'],
+  safelist: ['bg-skill-lang','bg-skill-fw','bg-skill-tools','bg-skill-domain'],
   theme: {
     extend: {
       colors: {
