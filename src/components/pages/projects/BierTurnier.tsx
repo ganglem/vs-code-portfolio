@@ -29,7 +29,7 @@ export function BierTurnier() {
           <p className="mt-2">
             <span className="syn-variable">stack</span>
             <span className="text-muted">: [</span>
-            {['Next.js', 'TypeScript', 'Docker', 'Supabase', 'Adobe Photoshop', 'Adobe Illustrator'].map((s, i, arr) => (
+            {['Next.js', 'TypeScript', 'Ruby on Rails', 'Docker', 'Supabase', 'Adobe Photoshop', 'Adobe Illustrator'].map((s, i, arr) => (
               <span key={s}>
                 <span className="syn-string">&apos;{s}&apos;</span>
                 {i < arr.length - 1 && <span className="text-muted">, </span>}

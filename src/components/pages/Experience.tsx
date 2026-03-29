@@ -6,7 +6,8 @@ interface Job {
   company: string
   location: string
   period: string
-  bullets: string[]
+  skills: string[]
+  bullets?: string[]
 }
 
 const JOBS: Job[] = [
@@ -16,7 +17,7 @@ const JOBS: Job[] = [
     role: 'Working Student — AI Tool Development',
     location: 'Ulm, Germany',
     period: 'Mar 2026 – present',
-    bullets: [],
+    skills: ['Software Engineering', 'Agentic AI', 'LLMs'],
   },
   {
     fn: 'hitachi_rail_gts',
@@ -24,6 +25,7 @@ const JOBS: Job[] = [
     role: 'Working Student — Penetration Testing',
     location: 'Germany',
     period: 'Feb 2025 – Feb 2026',
+    skills: ['Cybersecurity', 'Kali Linux', 'Penetration Testing', 'Jenkins'],
     bullets: [
       'Performed penetration testing on railway systems and products.',
       'Created and maintained custom Kali Linux ISO with automated builds using Jenkins.',
@@ -36,6 +38,7 @@ const JOBS: Job[] = [
     role: 'Working Student — Fundamental Technology R&D',
     location: 'Germany',
     period: 'Oct 2023 – Nov 2024',
+    skills: ['Apache Kafka', 'Cybersecurity', 'Python'],
     bullets: [
       'CONNECT Horizon Europe research program focusing on Trust Management in VANETs.',
       'Implemented, tested, and maintained a Python-based Cooperative Adaptive Cruise Control (CACC) module within SUMO traffic simulations, using Apache Kafka for real-time vehicle communication on Ubuntu Linux.',
@@ -48,6 +51,7 @@ const JOBS: Job[] = [
     role: 'Working Student — CarIT Security',
     location: 'Stuttgart, Germany',
     period: 'Oct 2021 – Sep 2023',
+    skills: ['Cybersecurity', 'Project Management', 'Python'],
     bullets: [
       'Developed a Python-based tool for automated cybersecurity analysis of vehicular network architectures.',
       'Performed vulnerability analysis on vehicle systems to identify security weaknesses.',
@@ -108,16 +112,29 @@ export function Experience() {
                 <span className="syn-string">&quot;{job.period}&quot;</span>
               </p>
               <p>
-                <span className="syn-variable">highlights</span>
+                <span className="syn-variable">skills</span>
                 <span className="text-muted"> = [</span>
+                {job.skills.map((s, si) => (
+                  <span key={si}>
+                    <span className="syn-string">&quot;{s}&quot;</span>
+                    {si < job.skills.length - 1 && <span className="text-muted">, </span>}
+                  </span>
+                ))}
+                <span className="text-muted">]</span>
               </p>
-              {job.bullets.map((b, bi) => (
-                <p key={bi} className="pl-4">
-                  <span className="syn-string">&quot;{b}&quot;</span>
-                  <span className="text-muted">,</span>
+              {job.bullets && job.bullets.length > 0 && <>
+                <p>
+                  <span className="syn-variable">highlights</span>
+                  <span className="text-muted"> = [</span>
                 </p>
-              ))}
-              <p><span className="text-muted">]</span></p>
+                {job.bullets.map((b, bi) => (
+                  <p key={bi} className="pl-4">
+                    <span className="syn-string">&quot;{b}&quot;</span>
+                    <span className="text-muted">,</span>
+                  </p>
+                ))}
+                <p><span className="text-muted">]</span></p>
+              </>}
             </div>
           </div>
         ))}

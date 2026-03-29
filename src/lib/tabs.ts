@@ -97,7 +97,7 @@ export const SIDEBAR_TREE: SidebarItem[] = [
     label: 'Projects',
     icon: FolderOpen,
     iconColor: 'text-code-yellow',
-    children: [t('ropagen'), t('findme'), t('bierturnier')],
+    children: [t('ropagen'), t('bierturnier'), t('findme')],
   },
   t('skills'),
 ]
