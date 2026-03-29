@@ -296,7 +296,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
 
     return (
       <GravityContext.Provider value={{ registerElement, unregisterElement }}>
-        <div ref={canvas} className={cn(className, "absolute top-0 left-0 w-full h-full")} {...props}>
+        <div ref={canvas} className={cn(className, "absolute top-0 left-0 w-full h-full")}>
           {children}
         </div>
       </GravityContext.Provider>

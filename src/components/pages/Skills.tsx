@@ -18,17 +18,17 @@ const SKILL_GROUPS = [
   {
     label: 'Frameworks',
     color: 'bg-[#005EFF] text-white',
-    skills: ['Next.js', 'React', 'Vue', 'Three.js', 'Framer Motion', 'Apache Kafka', 'Supabase'],
+    skills: ['Next.js', 'React', 'Three.js', 'Framer Motion', 'Apache Kafka', 'Supabase'],
   },
   {
     label: 'Tools',
-    color: 'bg-[#30FF78] text-white',
+    color: 'bg-[#37ED8C] text-white',
     skills: ['Docker', 'Git', 'Jenkins', 'Figma', 'Burp Suite', 'Kali Linux'],
   },
   {
     label: 'Domains',
     color: 'bg-[#8A30FF] text-white',
-    skills: ['Cybersecurity', 'Penetration Testing', 'Full-Stack Dev', 'R&D', 'LLM / AI'],
+    skills: ['Cybersecurity', 'Penetration Testing', 'Full-Stack Dev', 'R&D', 'Generative AI'],
   },
 ]
 
@@ -50,7 +50,7 @@ export function Skills() {
             matterBodyOptions={{ restitution: 0.4, friction: 0.05, density: 0.002 }}
           >
             <span
-              className={`inline-flex items-center px-8 py-4 font-mono text-[3rem] font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap shadow-md`}
+              className={`inline-flex items-center px-6 py-3 sm:px-10 sm:py-5 lg:px-16 lg:py-8 font-mono text-base sm:text-2xl lg:text-[3rem] font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap`}
             >
               {skill}
             </span>

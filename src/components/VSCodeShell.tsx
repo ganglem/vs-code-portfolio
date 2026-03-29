@@ -18,6 +18,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
   const router = useRouter()
   const [openTabs, setOpenTabs] = useState<TabId[]>([activeTab])
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarWidth, setSidebarWidth] = useState(224)
   const [sidebarView, setSidebarView] = useState<'explorer' | 'settings'>('explorer')
   const [folderOpen, setFolderOpen] = useState(true)
   const [isDark, setIsDark] = useState(true)
@@ -78,9 +79,11 @@ export function VSCodeShell({ activeTab, children }: Props) {
             activeTab={activeTab}
             folderOpen={folderOpen}
             isDark={isDark}
+            width={sidebarWidth}
             onClose={() => setSidebarOpen(false)}
             onFolderToggle={() => setFolderOpen((v) => !v)}
             onToggleTheme={toggleTheme}
+            onWidthChange={setSidebarWidth}
           />
 
           <main className="flex-grow flex flex-col overflow-hidden min-w-0">

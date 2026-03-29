@@ -68,7 +68,7 @@ function SortableTab({ tabId, activeTab, onClose, justDragged }: TabItemProps) {
         onPointerDown={(e) => e.stopPropagation()}
         onClick={(e) => onClose(tabId, e)}
         className={[
-          'flex items-center justify-center w-4 h-4 hover:bg-surface-container-high transition-opacity shrink-0',
+          'flex items-center justify-center w-4 h-4 hover:bg-surface-container-high rounded-full transition-opacity shrink-0',
           isActive ? 'opacity-40 hover:!opacity-100' : 'opacity-0 group-hover:opacity-60 hover:!opacity-100',
         ].join(' ')}
         aria-label={`Close ${tab.label}`}

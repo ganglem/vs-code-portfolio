@@ -1,6 +1,12 @@
+'use client'
+
+import { useRef } from 'react'
 import Link from 'next/link'
 import { X, ChevronDown, Sun, Moon } from 'lucide-react'
 import { TABS, type TabId } from '@/lib/tabs'
+
+const MIN_WIDTH = 160
+const MAX_WIDTH = 480
 
 interface Props {
   open: boolean
@@ -8,23 +14,47 @@ interface Props {
   activeTab: TabId
   folderOpen: boolean
   isDark: boolean
+  width: number
   onClose: () => void
   onFolderToggle: () => void
   onToggleTheme: () => void
+  onWidthChange: (w: number) => void
 }
 
-export function Sidebar({ open, view, activeTab, folderOpen, isDark, onClose, onFolderToggle, onToggleTheme }: Props) {
+export function Sidebar({ open, view, activeTab, folderOpen, isDark, width, onClose, onFolderToggle, onToggleTheme, onWidthChange }: Props) {
+  const dragging = useRef(false)
+
+  function startResize(e: React.PointerEvent) {
+    dragging.current = true
+    const startX = e.clientX
+    const startWidth = width
+
+    function onMove(ev: PointerEvent) {
+      if (!dragging.current) return
+      const next = Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, startWidth + ev.clientX - startX))
+      onWidthChange(next)
+    }
+    function onUp() {
+      dragging.current = false
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', onUp)
+    }
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerup', onUp)
+  }
+
   return (
     <aside
+      style={{ width: open ? width : 0 }}
       className={[
         'absolute lg:relative inset-y-0 left-0 z-50',
-        'flex flex-col font-sans text-[13px] tracking-tight shrink-0 w-56 overflow-hidden',
+        'flex flex-col font-sans text-[13px] tracking-tight shrink-0 overflow-hidden',
         'bg-surface-container-low border-r border-outline-variant/30',
         'transition-[transform,width] duration-200 ease-in-out',
-        open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0 lg:w-0',
+        open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
       ].join(' ')}
     >
-      <div className="w-56 flex flex-col h-full">
+      <div className="flex flex-col h-full" style={{ width }}>
         {/* Panel header */}
         <div className="flex items-center justify-between px-4 py-2 shrink-0">
           <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-on-surface-variant opacity-60">
@@ -97,6 +127,12 @@ export function Sidebar({ open, view, activeTab, folderOpen, isDark, onClose, on
           </div>
         )}
       </div>
+
+      {/* Resize handle — desktop only */}
+      <div
+        onPointerDown={startResize}
+        className="hidden lg:block absolute right-0 top-0 h-full w-1 cursor-col-resize hover:bg-primary/40 active:bg-primary/60 transition-colors z-10"
+      />
     </aside>
   )
 }
