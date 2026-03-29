@@ -19,17 +19,17 @@ const SKILL_GROUPS = [
   {
     label: 'Frameworks',
     color: 'bg-skill-fw text-white',
-    skills: ['Next.js', 'React', 'Three.js', 'Framer Motion', 'Apache Kafka', 'Supabase'],
+    skills: ['Next.js', 'React', 'Three.js', 'Tailwind CSS', 'Framer Motion', 'Apache Kafka', 'Supabase'],
   },
   {
     label: 'Tools',
     color: 'bg-skill-tools text-white',
-    skills: ['Docker', 'Git', 'Jenkins', 'Figma', 'Burp Suite', 'Kali Linux'],
+    skills: ['Docker', 'Git', 'Jenkins', 'Figma', 'Adobe Suite', 'Burp Suite', 'Kali Linux'],
   },
   {
     label: 'Domains',
     color: 'bg-skill-domain text-white',
-    skills: ['Cybersecurity', 'Penetration Testing', 'Full-Stack Dev', 'R&D', 'Generative AI'],
+    skills: ['Cybersecurity', 'Penetration Testing', 'Full-Stack Dev', 'R&D', 'Agentic AI', 'LLMs'],
   },
 ]
 
@@ -53,7 +53,7 @@ export function Skills() {
               matterBodyOptions={{ restitution: 0.4, friction: 0.05, density: 0.002 }}
             >
               <span
-                className={`inline-flex items-center px-6 py-3 sm:px-10 sm:py-5 lg:px-16 lg:py-8 font-mono text-sm sm:text-2xl lg:text-[3rem] font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap`}
+                className={`inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 font-mono text-xs sm:text-sm lg:text-base font-semibold tracking-wide rounded-full ${color} select-none whitespace-nowrap`}
               >
                 {skill}
               </span>
