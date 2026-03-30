@@ -23,7 +23,7 @@ import { TABS, type TabId } from '@/lib/tabs'
 
 interface TabItemProps {
   tabId: TabId
-  activeTab: TabId
+  activeTab: TabId | null
   onClose: (tabId: TabId, e: React.MouseEvent) => void
   justDragged: React.RefObject<boolean>
 }
@@ -81,7 +81,7 @@ function SortableTab({ tabId, activeTab, onClose, justDragged }: TabItemProps) {
 
 interface Props {
   openTabs: TabId[]
-  activeTab: TabId
+  activeTab: TabId | null
   onClose: (tabId: TabId, e: React.MouseEvent) => void
   onReorder: (tabs: TabId[]) => void
 }

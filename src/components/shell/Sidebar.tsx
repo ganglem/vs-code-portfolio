@@ -11,7 +11,7 @@ const MAX_WIDTH = 480
 interface Props {
   open: boolean
   view: 'explorer' | 'settings'
-  activeTab: TabId
+  activeTab: TabId | null
   isDark: boolean
   width: number
   onClose: () => void
@@ -38,7 +38,7 @@ function FileItem({ tab, isActive, onClose }: { tab: Tab; isActive: boolean; onC
   )
 }
 
-function FolderItem({ folder, activeTab, onClose }: { folder: SidebarFolder; activeTab: TabId; onClose: () => void }) {
+function FolderItem({ folder, activeTab, onClose }: { folder: SidebarFolder; activeTab: TabId | null; onClose: () => void }) {
   const [open, setOpen] = useState(true)
   const hasActive = folder.children.some((c) => c.id === activeTab)
 
@@ -67,7 +67,7 @@ function FolderItem({ folder, activeTab, onClose }: { folder: SidebarFolder; act
   )
 }
 
-function PortfolioTree({ activeTab, onClose }: { activeTab: TabId; onClose: () => void }) {
+function PortfolioTree({ activeTab, onClose }: { activeTab: TabId | null; onClose: () => void }) {
   const [open, setOpen] = useState(true)
   return (
     <div className="flex flex-col overflow-y-auto scrollbar-ide">
