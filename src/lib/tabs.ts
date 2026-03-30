@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react'
 import { FileText, FileCode, Coffee, Sparkles, FolderOpen, Gem, Atom } from 'lucide-react'
 
-export const TAB_IDS = ['introduction', 'experience', 'education', 'ropagen', 'findme', 'bierturnier', 'skills'] as const
+export const TAB_IDS = ['introduction', 'experience', 'education', 'ropagen', 'findme', 'bierturnier', 'skills', 'impressum'] as const
 export type TabId = (typeof TAB_IDS)[number]
 
 export interface Tab {
@@ -83,6 +83,13 @@ export const TABS: Tab[] = [
     language: 'TypeScript',
     fillEditor: true,
   },
+  {
+    id: 'impressum',
+    label: 'impressum.txt',
+    icon: FileText,
+    iconColor: 'text-muted',
+    language: 'Plain Text',
+  },
 ]
 
 const t = (id: TabId) => TABS.find((tab) => tab.id === id)!
@@ -100,6 +107,7 @@ export const SIDEBAR_TREE: SidebarItem[] = [
     children: [t('ropagen'), t('bierturnier'), t('findme')],
   },
   t('skills'),
+  t('impressum'),
 ]
 
 export const DEFAULT_TAB: TabId = 'introduction'

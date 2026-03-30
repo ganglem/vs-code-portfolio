@@ -50,7 +50,7 @@ export function Education() {
         {DEGREES.map((d, i) => (
           <div key={d.fn} className={i > 0 ? 'mt-5' : 'mt-3'}>
             <p className="pl-4">
-              <span className="syn-keyword">public void </span>
+              <span className="syn-keyword">public static void </span>
               <span className="syn-function">{d.fn}</span>
               <span className="text-muted">() &#123;</span>
             </p>
@@ -110,12 +110,16 @@ export function Education() {
             <span className="text-muted">) &#123;</span>
           </p>
           <p className="pl-4">
-            <span className="syn-type">System</span>
-            <span className="text-muted">.out.</span>
-            <span className="syn-function">println</span>
-            <span className="text-muted">(</span>
-            <span className="syn-string">&quot;Education loaded successfully.&quot;</span>
-            <span className="text-muted">);</span>
+            <span className="syn-type">AcademicBackground</span>
+            <span className="text-muted">.</span>
+            <span className="syn-function">bsc_software_engineering</span>
+            <span className="text-muted">();</span>
+          </p>
+          <p className="pl-4">
+            <span className="syn-type">AcademicBackground</span>
+            <span className="text-muted">.</span>
+            <span className="syn-function">msc_computer_science</span>
+            <span className="text-muted">();</span>
           </p>
           <p><span className="text-muted">&#125;</span></p>
         </div>

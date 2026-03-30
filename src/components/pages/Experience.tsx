@@ -148,10 +148,34 @@ export function Experience() {
           <span className="text-muted">:</span>
         </p>
         <p className="pl-4">
-          <span className="syn-function">print</span>
-          <span className="text-muted">(</span>
-          <span className="syn-string">&quot;Experience loaded successfully.&quot;</span>
-          <span className="text-muted">)</span>
+          <span className="syn-variable">exp</span>
+          <span className="text-muted"> = </span>
+          <span className="syn-type">ProfessionalExperience</span>
+          <span className="text-muted">()</span>
+        </p>
+        <p className="pl-4">
+          <span className="syn-variable">exp</span>
+          <span className="text-muted">.</span>
+          <span className="syn-function">mercedes_benz_tech_innovation</span>
+          <span className="text-muted">()</span>
+        </p>
+        <p className="pl-4">
+          <span className="syn-variable">exp</span>
+          <span className="text-muted">.</span>
+          <span className="syn-function">denso_automotive</span>
+          <span className="text-muted">()</span>
+        </p>
+        <p className="pl-4">
+          <span className="syn-variable">exp</span>
+          <span className="text-muted">.</span>
+          <span className="syn-function">hitachi_rail_gts</span>
+          <span className="text-muted">()</span>
+        </p>
+        <p className="pl-4">
+          <span className="syn-variable">exp</span>
+          <span className="text-muted">.</span>
+          <span className="syn-function">airbus_defence_and_space</span>
+          <span className="text-muted">()</span>
         </p>
       </div>
     </div>
