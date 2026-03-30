@@ -28,7 +28,11 @@ const CONTENT: Record<TabId, React.ReactNode> = {
 
 export default async function Page({ searchParams }: PageProps) {
   const { tab } = await searchParams
-  const activeTab: TabId | null = isValidTab(tab) ? tab : null
+  // No tab param = first visit → open introduction
+  // Explicit invalid param (e.g. "closed") = deliberately empty state
+  const activeTab: TabId | null = tab === undefined
+    ? 'introduction'
+    : isValidTab(tab) ? tab : null
 
   return (
     <VSCodeShell activeTab={activeTab}>

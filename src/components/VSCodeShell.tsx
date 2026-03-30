@@ -39,7 +39,7 @@ export function VSCodeShell({ activeTab, children }: Props) {
     const next = openTabs.filter((t) => t !== tabId)
     setOpenTabs(next)
     if (next.length === 0) {
-      router.push('/')
+      router.push('/?tab=closed')
     } else if (tabId === activeTab) {
       const idx = openTabs.indexOf(tabId)
       router.push(`/?tab=${next[Math.min(idx, next.length - 1)]}`)
