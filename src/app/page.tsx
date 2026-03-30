@@ -7,6 +7,7 @@ import { FindMe } from '@/components/pages/projects/FindMe'
 import { BierTurnier } from '@/components/pages/projects/BierTurnier'
 import { Skills } from '@/components/pages/Skills'
 import { Impressum } from '@/components/pages/Impressum'
+import { Photography } from '@/components/pages/Photography'
 import { isValidTab, DEFAULT_TAB, type TabId } from '@/lib/tabs'
 
 interface PageProps {
@@ -22,6 +23,7 @@ const CONTENT: Record<TabId, React.ReactNode> = {
   bierturnier: <BierTurnier />,
   skills: <Skills />,
   impressum: <Impressum />,
+  photography: <Photography />,
 }
 
 export default async function Page({ searchParams }: PageProps) {

@@ -79,7 +79,7 @@ export function Introduction() {
         {/* Name + tagline */}
         <BentoCard className="md:col-span-2">
           <div className="flex flex-col justify-center h-full gap-2 min-h-[150px]">
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
+            <h1 className="font-sans text-3xl sm:text-4xl font-bold text-foreground leading-tight">
               Emilija<br />Kastratović
             </h1>
             <p className="text-sm text-muted opacity-60 mt-1">
@@ -91,10 +91,8 @@ export function Introduction() {
         {/* Description */}
         <BentoCard className="md:col-span-2">
           <div className="flex flex-col justify-center h-full min-h-[150px]">
-            <p className="text-sm text-muted leading-relaxed opacity-70">
-              Master&apos;s student in Computer Science with 4+ years of practical experience
-              in Cybersecurity and Software Engineering who brings a creative and analytical
-              mindset to technical problem-solving.
+            <p className="font-mono text-base text-muted leading-relaxed opacity-70">
+              Hi! I&apos;m Emilija, nice to meet you! I&apos;m a computer science student, tech enthusiast, designer at heart! This is my digital me, click around and you&apos;ll find out all about me, my projects and my photos, and much more!
             </p>
           </div>
         </BentoCard>
