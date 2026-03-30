@@ -8,7 +8,7 @@ import { BierTurnier } from '@/components/pages/projects/BierTurnier'
 import { Skills } from '@/components/pages/Skills'
 import { Impressum } from '@/components/pages/Impressum'
 import { Photography } from '@/components/pages/Photography'
-import { isValidTab, DEFAULT_TAB, type TabId } from '@/lib/tabs'
+import { isValidTab, type TabId } from '@/lib/tabs'
 
 interface PageProps {
   searchParams: Promise<{ tab?: string }>
@@ -28,11 +28,11 @@ const CONTENT: Record<TabId, React.ReactNode> = {
 
 export default async function Page({ searchParams }: PageProps) {
   const { tab } = await searchParams
-  const activeTab: TabId = isValidTab(tab) ? tab : DEFAULT_TAB
+  const activeTab: TabId | null = isValidTab(tab) ? tab : null
 
   return (
     <VSCodeShell activeTab={activeTab}>
-      {CONTENT[activeTab]}
+      {activeTab ? CONTENT[activeTab] : null}
     </VSCodeShell>
   )
 }
